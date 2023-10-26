@@ -12,7 +12,6 @@
                 justifyContent="Center">
                 
                 <VBox>
-                <!-- 2nd commit -->
                     <Input id="idInput1" value=""/>
                     <Select id="idSelect" width="100%">
                         <core:Item key="PLUS" text="+" />
