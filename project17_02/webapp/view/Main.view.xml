@@ -1,0 +1,34 @@
+<mvc:View controllerName="project1702.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}" floatingFooter="true" showFooter="true">
+        <content>
+         <!-- <Button text="Button Text" /> -->
+         
+         <VBox class="abc">
+            <Button id="Btn1" text="click" type="Accept"/>
+            <Text id="idText" text="Hello World"></Text>
+            <Input id="idInput" change="onChange" value="test" />
+         </VBox>
+        </content>
+        <footer>
+            <Toolbar>
+				<Button text="Approve" press="onClick" type="Accept" />
+				<Button text="Reject" press="onPress" type="Reject"/>
+
+				<Button text="Mark as Favorite" press="onPress" visible="{range>/isNoPhone}"/>
+
+				<Button text="Send Email" press="onPress" visible="{range>/isNoPhone}"/>
+                <ToolbarSpacer/>
+				<Button text="Share" press="onPress" visible="{range>/isNoPhone}"/>
+
+				<Button text="Print" press="onPress" visible="{range>/isNotPhoneOrTablet}"/>
+				<Button icon="sap-icon://print" press="onPress" visible="{range>/isTablet}"/>
+
+				<Button text="Export as Excel" press="onPress" visible="{range>/isNotPhoneOrTablet}"/>
+
+				<Button icon="sap-icon://overflow" press="onOpen" visible="{range>/isPhoneOrTablet}"/>
+			</Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

@@ -1,0 +1,31 @@
+<mvc:View controllerName="project1703.controller.Main"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+        <Panel>
+            <FlexBox
+                class="sapUiSmallMargin"
+                height="150px"
+                alignItems="Center"
+                justifyContent="Center">
+                
+                <VBox>
+                    <Input id="idInput1" value=""/>
+                    <Select id="idSelect" width="100%">
+                        <core:Item key="PLUS" text="+" />
+                        <core:Item key="MINUS" text="-" />
+                        <core:Item key="MULTIPLE" text="*" />
+                        <core:Item key="DIVISION" text="/" />
+                    </Select>
+                    <Input id="idInput2" value="" />
+                    <Button id="idBtn" text="계산" type="Emphasized" width="100%" press="calCulator" />
+                </VBox>
+            
+            </FlexBox>
+        </Panel>
+           
+        </content>
+    </Page>
+</mvc:View>
