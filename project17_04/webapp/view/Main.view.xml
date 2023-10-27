@@ -1,7 +1,14 @@
 <mvc:View controllerName="project1704.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-        <content />
+    <!-- JSON Data의 Key값 기준으로 경로 설정 -->
+    <Page id="page" title="{/name}">
+        <content>
+            <HBox>
+                <Button press="onClick" text="Press Me!" />
+                <Input />
+                <Text />
+            </HBox>
+        </content>
     </Page>
 </mvc:View>
