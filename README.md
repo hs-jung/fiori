@@ -10,7 +10,7 @@ Fiori 수업
   <li>List Binding(=Aggregation Binding)</li>
   <ul>
     <li> rows="{main>/list}" </li>
-    <li Text text="{main>name}" wrapping="false" 상대경로로 list 배열 아래에서 찾음 </li>
+    <li> Text text="{main>name}" wrapping="false" 상대경로로 list 배열 아래에서 찾음 </li>
   </ul>
 </ul>
 
