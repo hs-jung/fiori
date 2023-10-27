@@ -12,12 +12,22 @@ sap.ui.define([
             onInit: function () {
                 
                 // 생성과 동시에 만드는 방법
-                var oData = { name : "AA" };         //json data
+                var oData = { name : {
+                    firstName : 'Hansik',               //oData.name.firstName
+                    lastName : 'Jung'                   //oData.name.lastName
+                } };         //json data
+
                 var oModel = new JSONModel(oData); //json model           //2-1. 1-1 설정한 라이브러리 객체 생성 방법
                 // var oModel2 = new sap.ui.model.json.JSONModel();          //2. onInit 안에서 JSONModel 객체 생성 방법
 
+                var oData2 = {
+                    inpValue : "Park Gildong"
+                };
+                var oModel2 = new JSONModel(oData2);
+
                 //jsonModel을 View에서 사용하고 싶으면 => Data Binding.
                 this.getView().setModel(oModel, 'main');
+                this.getView().setModel(oModel2, 'test');
 
             }
         });
