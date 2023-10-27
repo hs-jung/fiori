@@ -17,7 +17,7 @@ sap.ui.define([
                 // var oModel2 = new sap.ui.model.json.JSONModel();          //2. onInit 안에서 JSONModel 객체 생성 방법
 
                 //jsonModel을 View에서 사용하고 싶으면 => Data Binding.
-                this.getView().setModel(oModel);
+                this.getView().setModel(oModel, 'main');
 
             }
         });

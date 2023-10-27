@@ -2,7 +2,7 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
     <!-- JSON Data의 Key값 기준으로 경로 설정 -->
-    <Page id="page" title="{/name}">
+    <Page id="page" title="{main>/name}">
         <content>
             <HBox>
                 <Button press="onClick" text="Press Me!" />
