@@ -1,7 +1,9 @@
 <mvc:View controllerName="project1703.controller.Main"
+    xmlns:u="sap.ui.unified"
+    xmlns:t="sap.ui.table"
+    xmlns="sap.m"
     xmlns:core="sap.ui.core"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true">
     <Page id="page" title="{i18n>title}">
         <content>
         <Panel>
@@ -22,10 +24,132 @@
                     <Input id="idInput2" value="" />
                     <Button id="idBtn" text="계산" type="Emphasized" width="100%" press="calCulator" />
                 </VBox>
-            
             </FlexBox>
-        </Panel>
-           
+        </Panel>         
+                    <t:Table
+                    rows="{/ProductCollection}"
+                    selectionMode="MultiToggle"
+                    paste="onPaste"
+                    ariaLabelledBy="title">
+                        <t:extension>
+                            <OverflowToolbar style="Clear">
+                                <Title id="title" text="Products"/>
+                            </OverflowToolbar>
+                        </t:extension>
+                        <t:columns>
+                            <t:Column width="11rem">
+                                <Label text="Product Name" />
+                                <t:template>
+                                    <Text text="{Name}" wrapping="false" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column width="11rem">
+                                <Label text="Product Id" />
+                                <t:template>
+                                    <Input value="{ProductId}"/>
+                                </t:template>
+                            </t:Column>
+                            <t:Column width="6rem" hAlign="End">
+                                <Label text="Quantity" />
+                                <t:template>
+                                    <Label text="{Quantity}" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column width="9rem">
+                                <Label text="Status" />
+                                <t:template>
+                                    <ObjectStatus text="{Status}" state="{
+                                        path: 'Available',
+                                        formatter: '.formatAvailableToObjectState'
+                                    }"/>
+                                </t:template>
+                            </t:Column>
+                            <t:Column width="9rem">
+                                <Label text="Price" />
+                                <t:template>
+                                    <u:Currency value="{Price}" currency="{CurrencyCode}"/>
+                                </t:template>
+                            </t:Column>
+                            <t:Column width="12rem">
+                                <Label text="Supplier" />
+                                <t:template>
+                                    <ComboBox value="{SupplierName}" items="{/Suppliers}">
+                                        <core:Item text="{Name}"/>
+                                    </ComboBox>
+                                </t:template>
+                            </t:Column>
+                            <t:Column width="9rem">
+                                <Label text="Image" />
+                                <t:template>
+                                    <Link text="Show Image" href="{ProductPicUrl}" target="_blank"/>
+                                </t:template>
+                            </t:Column>
+                            <t:Column width="9rem">
+                                <Label text="Details" />
+                                <t:template>
+                                    <Button text="Show Details" press="handleDetailsPress"/>
+                                </t:template>
+                            </t:Column>
+                            <t:Column width="7rem">
+                                <Label text="Heavy Weight" />
+                                <t:template>
+                                    <CheckBox selected="{
+                                        path: 'Heavy',
+                                        type: 'sap.ui.model.type.String'
+                                    }"/>
+                                </t:template>
+                            </t:Column>
+                            <t:Column width="12rem">
+                                <Label text="Main Category" />
+                                <t:template>
+                                    <Select selectedKey="{Category}" items="{/Categories}">
+                                        <core:Item text="{Name}" key="{Name}"/>
+                                    </Select>
+                                </t:template>
+                            </t:Column>
+                            <t:Column width="12rem">
+                                <Label text="Additional Categories" />
+                                <t:template>
+                                    <MultiInput
+                                        tokenUpdate="updateMultipleSelection"
+                                        value="{AdditionalCategory}"
+                                        tokens="{AdditionalCategoriesSelection}"
+                                        suggestionItems="{
+                                            path: '/Categories',
+                                            sorter: { path: 'Name' }
+                                        }"
+                                        showValueHelp="false"
+                                        >
+                                        <tokens>
+                                            <Token key="{Key}" text="{Name}"/>
+                                        </tokens>
+                                        <suggestionItems>
+                                            <core:Item key="{ProductId}" text="{Name}" />
+                                        </suggestionItems>
+                                    </MultiInput>
+                                </t:template>
+                            </t:Column>
+                            <t:Column width="6rem" hAlign="Center">
+                                <Label text="Status" />
+                                <t:template>
+                                    <core:Icon src="{
+                                        path: 'Available',
+                                        formatter: '.formatAvailableToIcon'
+                                    }"/>
+                                </t:template>
+                            </t:Column>
+                            <t:Column width="11rem" hAlign="Center">
+                                <Label text="Delivery Date" />
+                                <t:template>
+                                    <DatePicker value="{
+                                        path: 'DeliveryDate',
+                                        type: 'sap.ui.model.type.Date',
+                                        formatOptions: {source: {pattern: 'timestamp'}}
+                                    }"/>
+                                </t:template>
+                            </t:Column>
+                        </t:columns>
+                    </t:Table>
         </content>
     </Page>
 </mvc:View>

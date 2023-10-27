@@ -9,6 +9,7 @@ sap.ui.define([
 
         return Controller.extend("project1703.controller.Main", {
             onInit: function () {
+                console.log("onInit");
                 // 초기값 세팅 - 화면이 뜨자마자 각 Input에 10, 20 세팅
                 this.byId('idInput1').setValue("10");
                 this.byId('idInput2').setValue("20");
