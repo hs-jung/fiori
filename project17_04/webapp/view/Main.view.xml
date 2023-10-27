@@ -1,14 +1,50 @@
 <mvc:View controllerName="project1704.controller.Main"
+    xmlns:u="sap.ui.unified"
+    xmlns:t="sap.ui.table"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
-    <!-- JSON Data의 Key값 기준으로 경로 설정 -->
-    <Page id="page" title="안녕하세요, {main>/name/lastName} {main>/name/firstName}">
+    <!-- JSON Data의 Key값 기준으로 경로 설정 | Property Binding -->
+    <Page id="page" title="안녕하세요, {main>/name/lastName} {main>/name/firstName}"> <!-- main>/list/1/name <= Array 접근 -->
         <content>
             <HBox>
                 <Button press="onClick" text="Press Me!" />
-                <Input value="{test>/inpValue}"/>
+                <Input value="{test>/inpValue}"/> <!-- Park Gildong -->
                 <Text />
             </HBox>
+
+            <!-- rows에 Array Binding -->
+            <t:Table
+                    rows="{main>/list}"
+                    selectionMode="MultiToggle"
+                    paste="onPaste"
+                    ariaLabelledBy="title">
+                        <t:extension>
+                            <OverflowToolbar style="Clear">
+                                <Title id="title" text="Products"/>
+                            </OverflowToolbar>
+                        </t:extension>
+                        <t:columns>
+                            <t:Column>
+                                <Label text="Name" /> <!-- 컬럼명 -->
+                                <t:template>
+                                    <Text text="{main>name}" wrapping="false" /> <!-- 상대경로로 list 배열 아래에서 찾음 -->
+                                </t:template>
+                            </t:Column>
+                            <t:Column>
+                                <Label text="Age" />
+                                <t:template>
+                                    <Text text="{main>age}" wrapping="false" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column>
+                                <Label text="Tel" />
+                                <t:template>
+                                    <Text text="{main>tel}" wrapping="false" />
+                                </t:template>
+                            </t:Column>
+                            
+                        </t:columns>
+                    </t:Table>
         </content>
     </Page>
 </mvc:View>

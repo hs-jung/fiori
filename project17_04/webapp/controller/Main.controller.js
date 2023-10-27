@@ -13,9 +13,16 @@ sap.ui.define([
                 
                 // 생성과 동시에 만드는 방법
                 var oData = { name : {
-                    firstName : 'Hansik',               //oData.name.firstName
-                    lastName : 'Jung'                   //oData.name.lastName
-                } };         //json data
+                        firstName : 'Hansik',               //oData.name.firstName
+                        lastName : 'Jung'                   //oData.name.lastName
+                    }
+                    ,
+                    list : [
+                    {name : 'Park' , age : 26, tel : '010-1111-1111'},
+                    {name : 'Jung' , age : 27, tel : '010-2222-2222'},   // list[1].name
+                    {name : 'Kim' , age : 25, tel : '010-3333-3333'}
+                    ] 
+                };         //json data
 
                 var oModel = new JSONModel(oData); //json model           //2-1. 1-1 설정한 라이브러리 객체 생성 방법
                 // var oModel2 = new sap.ui.model.json.JSONModel();          //2. onInit 안에서 JSONModel 객체 생성 방법
