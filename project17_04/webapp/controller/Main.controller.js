@@ -21,7 +21,9 @@ sap.ui.define([
                     {name : 'Park' , age : 26, tel : '010-1111-1111'},
                     {name : 'Jung' , age : 27, tel : '010-2222-2222'},   // list[1].name
                     {name : 'Kim' , age : 25, tel : '010-3333-3333'}
-                    ] 
+                    ] ,
+                    inpValue : "Park Gildong",
+                    txtValue : ''
                 };         //json data
 
                 var oModel = new JSONModel(oData); //json model           //2-1. 1-1 설정한 라이브러리 객체 생성 방법
@@ -35,6 +37,23 @@ sap.ui.define([
                 //jsonModel을 View에서 사용하고 싶으면 => Data Binding.
                 this.getView().setModel(oModel, 'main');
                 this.getView().setModel(oModel2, 'test');
+
+            },
+
+            onClick : function(oEvent){
+                debugger;               //개발자도구 켜져있어야 실행됨
+
+                var oModel = this.getView().getModel('main');
+
+                //oModel.getData()     : 전체 데이터 가져오기
+                //oModel.getProperty(경로) : 특정 데이터 가져오기
+                // var oData = oModel.getData();
+                // var oData = oModel.getProperty("/");   //전체데이터 가져오기
+                // var oData = oModel.getProperty("/name");   //특정 데이터 가져오기 /name 객체
+                var oData = oModel.getProperty("/inpValue");   //특정 데이터 가져오기 /name 객체
+                console.log(oData);
+
+                oModel.setProperty("/txtValue", oData);
 
             }
         });

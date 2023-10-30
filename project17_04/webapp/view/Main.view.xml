@@ -8,8 +8,8 @@
         <content>
             <HBox>
                 <Button press="onClick" text="Press Me!" />
-                <Input value="{test>/inpValue}"/> <!-- Park Gildong -->
-                <Text />
+                <Input value="{main>/inpValue}"/><!-- Park Gildong -->
+                <Text text="{main>/txtValue}" />
             </HBox>
 
             <!-- rows에 Array Binding -->
