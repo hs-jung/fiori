@@ -14,9 +14,11 @@
 
             <!-- rows에 Array Binding -->
             <t:Table
+                    id="idTable"
                     rows="{main>/list}"
                     selectionMode="MultiToggle"
                     paste="onPaste"
+                    rowActionCount="1"
                     ariaLabelledBy="title">
                         <t:extension>
                             <OverflowToolbar style="Clear">
@@ -26,6 +28,11 @@
                                  <Button icon="sap-icon://delete" text="Delete" press="onDeleteClick"/>
                             </OverflowToolbar>
                         </t:extension>
+                        <t:rowActionTemplate>
+                            <t:RowAction>
+                                <t:RowActionItem icon="sap-icon://decline" press="onRowActionItem"/>
+                            </t:RowAction>
+                        </t:rowActionTemplate>
                         <t:columns>
                             <t:Column>
                                 <Label text="Name" /> <!-- 컬럼명 -->

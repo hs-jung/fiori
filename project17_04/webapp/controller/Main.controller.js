@@ -67,9 +67,34 @@ sap.ui.define([
             onDeleteClick : function(oEvent){
                 var oModel = this.getView().getModel("main");
                 var oData = oModel.getProperty("/list");
+                var newData = [];
+
+                var selectedItems = this.getView().byId("idTable").getSelectedIndices();
+
+                if(selectedItems.length <= 0)
+                {
+                    sap.m.MessageToast.show("데이터를 선택하세요.");
+                }
+                else{
+                    for(var i=0; i< oData.length; i++)
+                    {
+                        if(selectedItems.indexOf(i) < 0)
+                        {
+                            newData.push(oData[i]);
+                        }
+                    }
+
+                    oModel.setProperty("/list", newData);
+                }
+            },
+            onRowActionItem : function(oEvent){
                 // debugger;
-                oData.pop();
-                oModel.setProperty("/list", oData)
+                var vIndex = oEvent.getParameter('row').getIndex();
+                var oModel = this.getView().getModel("main");
+                var oData = oModel.getProperty("/list");   //oModel.getData().list;
+                
+                oData.splice(vIndex,1);
+                oModel.setProperty("/list", oData);
             }
         });
     });
