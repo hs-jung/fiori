@@ -12,6 +12,17 @@ Fiori 수업
     <li> rows="{main>/list}" </li>
     <li> Text text="{main>name}" wrapping="false" 상대경로로 list 배열 아래에서 찾음 </li>
   </ul>
+  Client Model - Local에서 사용
+  <ul>
+    <li> JSON</li>
+    <li> XML</li>
+    <li> Resource</li>
+  </ul>
+  Server Model - Request
+  <ul>
+    <li> Odata V2</li>
+    <li> OData V4</li>
+  </ul>
 </ul>
 
 
