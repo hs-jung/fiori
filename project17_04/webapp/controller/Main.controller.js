@@ -62,7 +62,7 @@ sap.ui.define([
                 var oData = oModel.getProperty("/list");
                 var data = { };
                 oData.push(data);
-                oModel.setProperty("/list", oData)
+                oModel.setProperty("/list", oData);
             },
             onDeleteClick : function(oEvent){
                 var oModel = this.getView().getModel("main");
@@ -74,7 +74,7 @@ sap.ui.define([
                 if(!selectedItems.length)
                 {
                     // sap.m.MessageToast.show("데이터를 선택하세요.");
-                    return sap.m.MessageBox.error("데이터를 선택하세요.");
+                    return sap.m.MessageBox.error("데이터를 선택하세요.");  //success;
                 }
                 else{
                     //Solution1.
