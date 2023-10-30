@@ -21,13 +21,17 @@
                         <t:extension>
                             <OverflowToolbar style="Clear">
                                 <Title id="title" text="Products"/>
+                                <ToolbarSpacer />
+                                 <Button icon="sap-icon://add" text="Add" press="onAddClick"/>
+                                 <Button icon="sap-icon://delete" text="Delete" press="onDeleteClick"/>
                             </OverflowToolbar>
                         </t:extension>
                         <t:columns>
                             <t:Column>
                                 <Label text="Name" /> <!-- 컬럼명 -->
                                 <t:template>
-                                    <Text text="{main>name}" wrapping="false" /> <!-- 상대경로로 list 배열 아래에서 찾음 -->
+                                    <!-- <Text text="{main>name}" wrapping="false" /> --><!-- 상대경로로 list 배열 아래에서 찾음 -->
+                                    <Input value="{main>name}"></Input>
                                 </t:template>
                             </t:Column>
                             <t:Column>

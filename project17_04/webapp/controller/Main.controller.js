@@ -55,6 +55,21 @@ sap.ui.define([
 
                 oModel.setProperty("/txtValue", oData);
 
+            },
+            onAddClick : function(oEvent)
+            {
+                var oModel = this.getView().getModel("main");
+                var oData = oModel.getProperty("/list");
+                var data = { };
+                oData.push(data);
+                oModel.setProperty("/list", oData)
+            },
+            onDeleteClick : function(oEvent){
+                var oModel = this.getView().getModel("main");
+                var oData = oModel.getProperty("/list");
+                // debugger;
+                oData.pop();
+                oModel.setProperty("/list", oData)
             }
         });
     });
