@@ -71,13 +71,14 @@ sap.ui.define([
 
                 var selectedItems = this.getView().byId("idTable").getSelectedIndices();
 
-                if(selectedItems.length <= 0)
+                if(!selectedItems.length)
                 {
-                    sap.m.MessageToast.show("데이터를 선택하세요.");
+                    // sap.m.MessageToast.show("데이터를 선택하세요.");
+                    return sap.m.MessageBox.error("데이터를 선택하세요.");
                 }
                 else{
                     //Solution1.
-                    
+
                     // for(var i=0; i< oData.length; i++)
                     // {
                     //     if(selectedItems.indexOf(i) < 0)
