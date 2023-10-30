@@ -76,15 +76,25 @@ sap.ui.define([
                     sap.m.MessageToast.show("데이터를 선택하세요.");
                 }
                 else{
-                    for(var i=0; i< oData.length; i++)
-                    {
-                        if(selectedItems.indexOf(i) < 0)
-                        {
-                            newData.push(oData[i]);
-                        }
-                    }
+                    //Solution1.
+                    
+                    // for(var i=0; i< oData.length; i++)
+                    // {
+                    //     if(selectedItems.indexOf(i) < 0)
+                    //     {
+                    //         newData.push(oData[i]);
+                    //     }
+                    // }
 
-                    oModel.setProperty("/list", newData);
+                    // oModel.setProperty("/list", newData);
+
+
+                    // Solution 2.
+                    for(var i = selectedItems.length-1; i>= 0 ; i--)
+                    {
+                        oData.splice(selectedItems[i],1);
+                    }
+                    oModel.setProperty("/list", oData);
                 }
             },
             onRowActionItem : function(oEvent){
