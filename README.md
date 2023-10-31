@@ -35,5 +35,13 @@ Fiori 수업
   <li>계산 히스토리 내역 추가</li>
 </ul>
 
-
+<h1>Project05 - Layout/Form/SimpleForm --23.10.31</h1>
+<ul> Layout
+  <li>Panel</li>
+  <li>VerticalLayout</li>
+  <li>HorizontalLayout</li>
+  <li>Grid</li>
+</ul>
+<ul> Form/SimpleForm
+</ul>
 
