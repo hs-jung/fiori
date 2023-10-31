@@ -36,5 +36,12 @@ Fiori 수업
 </ul>
 
 <h1>Project05 - Layout/Form/SimpleForm --23.10.31</h1>
-
+<ul> Layout
+  <li>Panel</li>
+  <li>VerticalLayout</li>
+  <li>HorizontalLayout</li>
+  <li>Grid</li>
+</ul>
+<ul> Form/SimpleForm
+</ul>
 
