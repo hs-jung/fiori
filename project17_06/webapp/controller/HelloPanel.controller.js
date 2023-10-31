@@ -16,11 +16,16 @@ sap.ui.define([
                 // sap.ui.core.Fragment
                 Fragment.load({
                     name : 'project1706.view.fragment.Dialog',
-                    type : 'XML'
+                    type : 'XML',
+                    controller : this
                 }).then(function(oDialog) {
                     //비동기로 file load 끝난 후 then 함수 시작
                     oDialog.open();
                 });
+            },
+            onClose : function() {
+              var oDialog =  sap.ui.getCore().byId("idDialog");
+              oDialog.close();
             }
         });
     });
