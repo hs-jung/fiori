@@ -3,7 +3,7 @@
     xmlns="sap.m">
     <Panel >
         <content>
-            <Button text="Hello Panel"/>
+            <Button text="Hello Panel" press="onOpenDialog"/>
             <Input value="Hello Input"/>
         </content>
     </Panel>

@@ -1,0 +1,7 @@
+<c:FragmentDefinition xmlns:c="sap.ui.core" xmlns="sap.m">
+    <Dialog contentWidth="40%" contentHeight="50%">
+        <content>
+            <Text text="hihi" />
+        </content>
+    </Dialog>
+</c:FragmentDefinition>
