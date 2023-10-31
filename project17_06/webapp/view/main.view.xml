@@ -3,6 +3,8 @@
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
     <!-- Nested View 중첩뷰 -->
-        <content />
+        <content>
+            <mvc:XMLView viewName="project1706.view.HelloPanel"></mvc:XMLView>
+        </content>
     </Page>
 </mvc:View>
