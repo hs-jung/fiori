@@ -45,6 +45,6 @@ Fiori 수업
 <ul> Form/SimpleForm
 </ul>
 <ul> Nested View (중첩뷰)
-  
+  <li>파일명.fragment.xml => 컨트롤러 갖을 수 없음. 모달창 만들때 사용</li>
 </ul>
 
