@@ -46,6 +46,6 @@ Fiori 수업
 </ul>
 <ul> Nested View (중첩뷰)
   <li>파일명.fragment.xml => 컨트롤러 갖을 수 없음. 모달창 만들때 사용 뷰폴더 안에 fragment 폴더 만들어서 따로 관리하기도 함</li>
-  <li>팝업 =>Dialog</li>
+  <li>팝업 =>Dialog =>fragment로 구현</li>
 </ul>
 
