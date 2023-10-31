@@ -1,7 +1,88 @@
 <mvc:View controllerName="project1705.controller.main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout">
     <Page id="page" title="{i18n>title}">
-        <content />
+        <content >
+            <Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+                <headerToolbar>
+                    <OverflowToolbar style="Clear">
+                        <Title text="Vertical Layout" />
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://settings" />
+                        <Button icon="sap-icon://drop-down-list" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <content>
+                    <l:VerticalLayout >
+                        <Input />
+                        <StepInput />
+                        <ComboBox />
+                        <Select />
+                        <DatePicker displayFormat="yyyy-MM-dd" />
+                        <DateRangeSelection />
+                    </l:VerticalLayout>
+                </content>
+            </Panel>
+            <Panel expandable="true" width="auto" class="sapUiResponsiveMargin">
+                <headerToolbar>
+                    <OverflowToolbar style="Clear">
+                        <Title text="Horizontal Layout" />
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://settings" />
+                        <Button icon="sap-icon://drop-down-list" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <content>
+                    <l:HorizontalLayout >
+                        <Input />
+                        <StepInput />
+                        <ComboBox />
+                        <Select />
+                        <DatePicker displayFormat="yyyy-MM-dd" />
+                        <DateRangeSelection />
+                    </l:HorizontalLayout>
+                </content>
+            </Panel>
+            <!-- sap.ui.layout.Grid -->
+            <l:Grid >
+                <Input value="TEST1">
+                    <layoutData>
+                        <l:GridData span="XL6 L2 M4 S12" />
+                    </layoutData>
+                    
+                </Input>
+                <Input value="TEST2">
+                    <layoutData>
+                        <l:GridData span="XL6 L2 M4 S12" />
+                    </layoutData>
+                    
+                </Input>
+                <Input value="TEST3">
+                    <layoutData>
+                        <l:GridData span="XL6 L2 M4 S12" />
+                    </layoutData>
+                    
+                </Input>
+                <Input value="TEST4">
+                    <layoutData>
+                        <l:GridData span="XL6 L2 M4 S12" />
+                    </layoutData>
+                    
+                </Input>
+                <Input value="TEST5">
+                    <layoutData>
+                        <l:GridData span="XL6 L2 M4 S12" />
+                    </layoutData>
+                    
+                </Input>
+                <Input value="TEST6">
+                    <layoutData>
+                        <l:GridData span="XL6 L2 M4 S12" />
+                    </layoutData>
+                    
+                </Input>
+            </l:Grid>
+        </content>
     </Page>
 </mvc:View>
