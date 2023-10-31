@@ -16,9 +16,16 @@ sap.ui.define([
                 this.byId('idInput2').setValue("20");
 
                 //Data 설정
-                var oData = { history : [] };         //json data
+                var oData = { combo : [
+                    { key : 'PLUS', text : '+'},
+                    { key : 'MINUS', text : '-'},
+                    { key : 'DIVISION', text : '/'},
+                    { key : 'MULTIPLE', text : 'x'}
+                ],
+                    history : [] };         //json data
 
                 var oModel = new JSONModel(oData); 
+
 
 
                 //jsonModel을 View에서 사용하고 싶으면 => Data Binding.
@@ -35,32 +42,46 @@ sap.ui.define([
                 let result = 0;
                 //Data 설정
                 var oNewData = { };         //json data
+                let op1 = '';
 
                 switch(op){
                     case 'PLUS':
                         result = item1 + item2;
+                        op1 = '+';
                         break;
                     case 'MINUS':
                         result = item1 - item2;
+                        op1 = '-';
                         break;
                     case 'MULTIPLE':
                         result = item1 * item2;
+                        op1 = 'x';
                         break;
                     case 'DIVISION':
                         result = item1 / item2;
+                        op1 = '/';
                         break;
             
                 }
-                oNewData = { num1 : item1, op : op, num2 : item2, result : result
+                oNewData = { num1 : item1, op : op1, num2 : item2, result : result
                 };         //json data
                 // console.log( result );
                 sap.m.MessageToast.show(result);
                 // sap.m.MessageBox
                 // debugger;
+                this._addHistory(oNewData); // 외부 연결되지 않은 내부 함수
 
-                // oData.push(oNewData);  //ASE
-                oData.unshift(oNewData);  //DES
+                // // oData.push(oNewData);  //ASE
+                // oData.unshift(oNewData);  //DES
+                // oModel.setProperty("/history", oData);
+            },
+            _addHistory: function(result){
+                let oModel = this.getView().getModel('main');
+                let oData = this.getView().getModel('main').getProperty("/history");
+
+                oData.unshift(result);  //DES
                 oModel.setProperty("/history", oData);
+
             }
         });
     });

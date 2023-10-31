@@ -15,11 +15,12 @@
                 
                 <VBox>
                     <Input id="idInput1" value=""/>
-                    <Select id="idSelect" width="100%">
-                        <core:Item key="PLUS" text="+" />
+                    <Select id="idSelect" width="100%" items="{main>/combo}"> 
+                        <!-- <core:Item key="PLUS" text="+" />
                         <core:Item key="MINUS" text="-" />
                         <core:Item key="MULTIPLE" text="*" />
-                        <core:Item key="DIVISION" text="/" />
+                        <core:Item key="DIVISION" text="/" /> -->
+                         <core:Item key="{main>key}" text="{main>text}" />
                     </Select>
                     <Input id="idInput2" value="" />
                     <Button id="idBtn" text="계산" type="Emphasized" width="100%" press="calCulator" />
@@ -59,6 +60,12 @@
                                 <Label text="Result" />
                                 <t:template>
                                     <Text text="{main>result}" wrapping="false" />
+                                </t:template>
+                            </t:Column>
+                            <t:Column width="11rem">
+                                <Label text="Status" />
+                                <t:template>
+                                    <Text text="{= ${main>result} >= 10 ? 'Yes' : 'No'}" wrapping="false" visible="{= ${main>result} >= 10}" />  <!-- expression Binding 가벼운 js 로직을 넣을 수 있다.-->
                                 </t:template>
                             </t:Column>
                             
