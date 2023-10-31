@@ -25,6 +25,15 @@ Fiori 수업
   </ul>
 </ul>
 
+<h1>23.10.30</h1>
+<ul> Proejct04
+  <li>항목 추가</li>
+  <li>항목 삭제(단일)</li>
+  <li>항목 삭제(복수)</li>
+</ul>
+<ul> Proejct03
+  <li>계산 히스토리 내역 추가</li>
+</ul>
 
 
 
