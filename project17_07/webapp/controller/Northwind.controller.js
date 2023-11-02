@@ -34,7 +34,7 @@ sap.ui.define([
                 }
             },
             onValueHelp: function(){
-                debugger;
+                // debugger;
                 var oDialog =  sap.ui.getCore().byId("idDialog");
                 var oModel = this.getView().getModel();
                 // sap.ui.core.Fragment
@@ -53,9 +53,12 @@ sap.ui.define([
                     oDialog.open();
                 }
             },
-            onClose : function() {
+            onClose : function(oEvent) {
                 var oDialog =  sap.ui.getCore().byId("idDialog");
-                oDialog.close();
+                // oDialog.close();
+
+                //이벤트를 일으킨 객체(버튼)로부터 접근하여 Dialog 닫기
+                oEvent.getSource().getParent().close();
             }
         });
     });
