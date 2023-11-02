@@ -64,5 +64,10 @@ Fiori 수업
   <li>팝업 =>Dialog =>fragment로 구현</li>
 </ul>
 ![image](https://github.com/hs-jung/fiori/assets/19891967/c331c46f-b1bc-48cd-9a2f-766c3f3aab89)
+--namespace 설정
+![image](https://github.com/hs-jung/fiori/assets/19891967/839ec7df-b6b6-4645-b61d-254d1981482f)
+
+
+--Responsive Table
 
 
