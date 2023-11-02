@@ -1,7 +1,37 @@
 <mvc:View controllerName="odata.project1.controller.Northwind"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-        <content />
-    </Page>
+    xmlns:m="sap.m"
+    xmlns="sap.uxap">
+
+    <ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false">
+		<headerTitle>
+			<ObjectPageHeader objectTitle="Section sample">
+			</ObjectPageHeader>
+		</headerTitle>
+
+		<headerContent>
+			<m:ObjectAttribute title="" text="This example explains the rules for the rendering of sections"/>
+		</headerContent>
+
+		<sections>
+			<ObjectPageSection titleUppercase="false" title="Section 5">
+				<subSections>
+					<ObjectPageSubSection titleUppercase="false">
+						<blocks>
+							<m:Text text="test" />
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+            <ObjectPageSection titleUppercase="false" title="Section 4">
+				<subSections>
+					<ObjectPageSubSection titleUppercase="false">
+						<blocks>
+							<m:Text text="Section 4 Page" />
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
 </mvc:View>
