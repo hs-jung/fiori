@@ -1,15 +1,21 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/core/Fragment"
+    "sap/ui/core/Fragment",
+    "sap/ui/model/Filter"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller,Fragment) {
+    function (Controller,Fragment, Filter) {
         "use strict";
 
         return Controller.extend("odata.project1.controller.Northwind", {
             onInit: function () {
+                var oModel = new sap.ui.model.json.JSONModel({
+                    CustomerID : ''
+                });
+
+                this.getView().setModel(oModel, "main");
 
             },
             //formatter 함수
@@ -59,6 +65,29 @@ sap.ui.define([
 
                 //이벤트를 일으킨 객체(버튼)로부터 접근하여 Dialog 닫기
                 oEvent.getSource().getParent().close();
+            },
+            onSearch : function() {
+                // debugger;
+                var oData = this.getView().getModel("main").getData();
+                var aFilter = [];
+
+                if(oData.CustomerID){
+                    // var oFilter = new Filter({
+                    //     path : "CustomerID",           //필터 대상 필드 이름
+                    //     operator : "EQ",      // 조건 (EQ, NE, GT, GE, BT, Contains, ... )
+                    //     value1 : oData.CustomerID,        // From 값
+                    //     // value1 : 'VINET',        // From 값
+                    //     value2 : ""         // To 값
+                    // });
+
+                    var oFilter = new Filter('CustomerID','EQ', oData.CustomerID);
+                    aFilter.push(oFilter);
+
+                }
+               
+
+                this.byId("idTable").getBinding("items").filter(aFilter);
+
             }
         });
     });

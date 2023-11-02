@@ -11,8 +11,9 @@
 		</headerTitle>
 
 		<headerContent>
-			<m:ObjectAttribute title="" text="This example explains the rules for the rendering of sections"/>
-            <m:Input id="" width="200px" value="" showValueHelp="true" valueHelpRequest=".onValueHelp"/>
+			<!-- <m:ObjectAttribute title="" text="This example explains the rules for the rendering of sections"/> -->
+            <m:Input id="" width="200px" showValueHelp="true" value="{main>/CustomerID}" valueHelpRequest=".onValueHelp"/>
+            <m:Button width="100px" type="Emphasized" text="Search" press="onSearch" />
 		</headerContent>
 
 		<sections>
@@ -20,7 +21,7 @@
 				<subSections>
 					<ObjectPageSubSection titleUppercase="false">
 						<blocks>
-                            <m:Table id="idProductsTable"
+                            <m:Table id="idTable"
                             inset="false"
                             items="{path : '/Orders'}">
                             <m:headerToolbar>
