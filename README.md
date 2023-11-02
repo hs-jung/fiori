@@ -51,23 +51,20 @@ Fiori 수업
 </ul>
 
 <h1>Project07 -OdataService --23.11.02</h1>
-<ul> Layout
-  <li>Panel</li>
-  <li>VerticalLayout</li>
-  <li>HorizontalLayout</li>
-  <li>Grid</li>
-</ul>
-<ul> Form/SimpleForm
-</ul>
-<ul> Nested View (중첩뷰)
-  <li>파일명.fragment.xml => 컨트롤러 갖을 수 없음. 모달창 만들때 사용 뷰폴더 안에 fragment 폴더 만들어서 따로 관리하기도 함</li>
-  <li>팝업 =>Dialog =>fragment로 구현</li>
-</ul>
+oData Service / ValueHelp / Filter
 ![image](https://github.com/hs-jung/fiori/assets/19891967/c331c46f-b1bc-48cd-9a2f-766c3f3aab89)
 --namespace 설정
 ![image](https://github.com/hs-jung/fiori/assets/19891967/839ec7df-b6b6-4645-b61d-254d1981482f)
 
 
 --Responsive Table
+
+Model.filter
+new Filter({
+path : '필터 대상 필드명', ==> CustomerID
+operator :                ==> BT, Contains, GT, LE, NE
+value1 :
+value2 :
+})
 
 
