@@ -1,9 +1,10 @@
 <mvc:View controllerName="odata.project1.controller.Northwind"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns:m="sap.m"
+    xmlns:core="sap.ui.core"
     xmlns="sap.uxap">
 
-    <ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false">
+    <ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false" useIconTabBar="true">
 		<headerTitle>
 			<ObjectPageHeader objectTitle="Section sample">
 			</ObjectPageHeader>
@@ -18,7 +19,71 @@
 				<subSections>
 					<ObjectPageSubSection titleUppercase="false">
 						<blocks>
-							<m:Text text="test" />
+                            <m:Table id="idProductsTable"
+                            inset="false"
+                            items="{
+                                path: '/Orders'
+                            }">
+                            <m:headerToolbar>
+                                <m:OverflowToolbar>
+                                    <m:content>
+                                        <m:Title text="Products" level="H2"/>
+                                        <m:ToolbarSpacer />
+                                    </m:content>
+                                </m:OverflowToolbar>
+                            </m:headerToolbar>
+                            <m:columns>
+                                <m:Column>
+                                    <m:Text text="OrderID" />
+                                </m:Column>
+                                <m:Column>
+                                    <m:Text text="CustomerID" />
+                                </m:Column>
+                                <m:Column>
+                                    <m:Text text="EmployeeID" />
+                                </m:Column>
+                                <m:Column>
+                                    <m:Text text="OrderDate" />
+                                </m:Column>
+                                <m:Column>
+                                    <m:Text text="RequiredDate" />
+                                </m:Column>
+                                <m:Column>
+                                    <m:Text text="ShippedDate" />
+                                </m:Column>
+                                 <m:Column>
+                                    <m:Text text="Freight Sum" />
+                                </m:Column>
+                            </m:columns>
+                            <m:items>
+                                <m:ColumnListItem vAlign="Middle">
+                                    <m:cells>
+                                          <m:Text text="{OrderID}" />
+                                          <m:Text text="{CustomerID}" />
+                                          <m:Text text="{EmployeeID}" />
+                                          <!--  (JSON Model + formatter 사용할 때 참고사항)
+                                                formmatter 적용시 one-way Binding 방식이 적용됨 -->
+                                          <m:Text text="{
+                                            path : 'OrderDate',
+                                            formatter : '.formatter.fnDateToString'
+                                            }" />
+                                          <m:Text text="{
+                                            path : 'RequiredDate',
+                                            formatter : '.formatter.fnDateToString'}" />
+                                          <m:Text text="{
+                                            path : 'ShippedDate',
+                                            formatter : '.formatter.fnDateToString'}" />
+                                            <!-- 두개 이상의 값 사용할 때 -->
+                                          <m:Text text="{
+                                            parts : [
+                                                {path : 'ShipVia'},
+                                                {path : 'Freight'}
+                                            ],
+                                            formatter : '.formatter.fnFreightSum'}" />
+                                    </m:cells>
+                                </m:ColumnListItem>
+                            </m:items>
+                        </m:Table>
 						</blocks>
 					</ObjectPageSubSection>
 				</subSections>
