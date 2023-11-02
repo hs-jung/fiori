@@ -1,10 +1,11 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/core/Fragment"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller) {
+    function (Controller,Fragment) {
         "use strict";
 
         return Controller.extend("odata.project1.controller.Northwind", {
@@ -31,8 +32,30 @@ sap.ui.define([
                         return via * Number(freight);
                     }
                 }
-                
+            },
+            onValueHelp: function(){
+                debugger;
+                var oDialog =  sap.ui.getCore().byId("idDialog");
+                var oModel = this.getView().getModel();
+                // sap.ui.core.Fragment
+                if(!oDialog){
+                    Fragment.load({
+                        name : 'odata.project1.view.fragment.Dialog',
+                        type : 'XML',
+                        controller : this
+                    }).then(function(oDialog) {
+                        //비동기로 file load 끝난 후 then 함수 시작
+                        oDialog.setModel(oModel);
+                        oDialog.open();
+                    });
+                }
+                else{
+                    oDialog.open();
+                }
+            },
+            onClose : function() {
+                var oDialog =  sap.ui.getCore().byId("idDialog");
+                oDialog.close();
             }
-            
         });
     });

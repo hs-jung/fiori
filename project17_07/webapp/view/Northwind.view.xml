@@ -12,6 +12,7 @@
 
 		<headerContent>
 			<m:ObjectAttribute title="" text="This example explains the rules for the rendering of sections"/>
+            <m:Input id="" width="200px" value="" showValueHelp="true" valueHelpRequest=".onValueHelp"/>
 		</headerContent>
 
 		<sections>
@@ -21,9 +22,7 @@
 						<blocks>
                             <m:Table id="idProductsTable"
                             inset="false"
-                            items="{
-                                path: '/Orders'
-                            }">
+                            items="{path : '/Orders'}">
                             <m:headerToolbar>
                                 <m:OverflowToolbar>
                                     <m:content>
