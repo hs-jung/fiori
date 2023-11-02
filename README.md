@@ -42,10 +42,27 @@ Fiori 수업
   <li>HorizontalLayout</li>
   <li>Grid</li>
 </ul>
+
+
+<h1>Project06 - Layout/Form/SimpleForm --23.10.31</h1>
+<ul> Nested View (중첩뷰)
+  <li>파일명.fragment.xml => 컨트롤러 갖을 수 없음. 모달창 만들때 사용 뷰폴더 안에 fragment 폴더 만들어서 따로 관리하기도 함</li>
+  <li>팝업 =>Dialog =>fragment로 구현</li>
+</ul>
+
+<h1>Project07 -OdataService --23.11.02</h1>
+<ul> Layout
+  <li>Panel</li>
+  <li>VerticalLayout</li>
+  <li>HorizontalLayout</li>
+  <li>Grid</li>
+</ul>
 <ul> Form/SimpleForm
 </ul>
 <ul> Nested View (중첩뷰)
   <li>파일명.fragment.xml => 컨트롤러 갖을 수 없음. 모달창 만들때 사용 뷰폴더 안에 fragment 폴더 만들어서 따로 관리하기도 함</li>
   <li>팝업 =>Dialog =>fragment로 구현</li>
 </ul>
+![image](https://github.com/hs-jung/fiori/assets/19891967/c331c46f-b1bc-48cd-9a2f-766c3f3aab89)
+
 
