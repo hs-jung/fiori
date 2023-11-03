@@ -13,7 +13,7 @@
         </VBox>
         <VBox class="sapUiLargeMargin">
             <t:Table
-				rows="{/ProductCollection}"
+				rows="{list>/rows}"
 				selectionMode="MultiToggle"
 				paste="onPaste"
 				ariaLabelledBy="title">
@@ -26,7 +26,7 @@
 					<t:Column width="11rem">
 						<Label text="Value" />
 						<t:template>
-							<Text text="{Name}" wrapping="false" />
+							<Text text="{list>text}" wrapping="false" />
 						</t:template>
 					</t:Column>
 					
