@@ -18,6 +18,7 @@
 				paste="onPaste"
 				ariaLabelledBy="title"
                 width="300px"
+                visibleRowCount='4'
                 >
 				<t:extension>
 					<OverflowToolbar style="Clear">
