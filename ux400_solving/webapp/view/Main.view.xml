@@ -11,12 +11,14 @@
             <Input id="idInput" />
             <Button text="Random" press="onRandomPress"/>
         </VBox>
-        <VBox class="sapUiLargeMargin">
+        <VBox class="sapUiLargeMargin" height="200px">
             <t:Table
 				rows="{list>/rows}"
 				selectionMode="MultiToggle"
 				paste="onPaste"
-				ariaLabelledBy="title">
+				ariaLabelledBy="title"
+                width="300px"
+                >
 				<t:extension>
 					<OverflowToolbar style="Clear">
 						<Title id="title" text="랜덤 목록 리스트"/>
@@ -32,6 +34,7 @@
 					
 				</t:columns>
 			</t:Table>
+            <Button text="Open Product" press="onOpenPress"/>
         </VBox>
     </Page>
 </mvc:View>
