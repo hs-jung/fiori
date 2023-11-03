@@ -12,7 +12,8 @@
                 selectionMode="Single"
                 selectionBehavior="RowOnly"
                 paste="onPaste"
-                ariaLabelledBy="title">
+                ariaLabelledBy="title"
+                >
                 <extension>
                     <m:OverflowToolbar>
                     <m:Title id="title" text="Products"/>
@@ -78,7 +79,10 @@
                      <Column>
                         <m:Label text="Discontinued" />
                         <template>
-                            <m:Text text="{Discontinued}" wrapping="false" />
+                            <m:Text text="{
+                                    path : 'Discontinued',
+                                    formatter : '.formatter.transformDiscontinued'
+                                }" wrapping="false" />
                         </template>
                     </Column>
                 </columns>

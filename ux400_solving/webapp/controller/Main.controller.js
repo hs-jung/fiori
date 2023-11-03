@@ -54,6 +54,17 @@ sap.ui.define([
 
                 //이벤트를 일으킨 객체(버튼)로부터 접근하여 Dialog 닫기
                 oEvent.getSource().getParent().close();
+            },
+            _typeToString: function(value) {
+                return value ? 'Yes' : 'No';
+            },
+            //formatter 함수
+            formatter : {
+                transformDiscontinued : function(value) {
+                    // debugger;
+                    return this._typeToString(value);
+                    // return value ? 'Yes' : 'No';
+                }
             }
         });
     });
