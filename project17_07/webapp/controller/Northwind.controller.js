@@ -1,12 +1,13 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/core/Fragment",
-    "sap/ui/model/Filter"
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller,Fragment, Filter) {
+    function (Controller,Fragment, Filter,FilterOperator) {
         "use strict";
 
         return Controller.extend("odata.project1.controller.Northwind", {
@@ -67,7 +68,7 @@ sap.ui.define([
                 oEvent.getSource().getParent().close();
             },
             onSearch : function() {
-                // debugger;
+                debugger;
                 var oData = this.getView().getModel("main").getData();
                 var aFilter = [];
 
