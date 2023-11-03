@@ -19,6 +19,9 @@ sap.ui.define([
 
             },
             onRandomPress : function () {
+                this.byId("idInput").setValueState('None');
+                this.byId("idInput").setValueStateText('');
+
                 var value = Math.floor(Math.random() * 100) + 1;
                 this.byId("idInput").setValue(value);
 
@@ -65,6 +68,25 @@ sap.ui.define([
                     return this._typeToString(value);
                     // return value ? 'Yes' : 'No';
                 }
+            },
+            onValueChange : function() {
+                // debugger;
+                let oModel = this.getView().getModel('list');
+                let oData = this.getView().getModel('list').getProperty("/rows");
+                let value = 0;
+
+                if( this.byId("idInput").getValue() >= 1 && this.byId("idInput").getValue() <= 100){
+                    this.byId("idInput").setValueState('None');
+                    this.byId("idInput").setValueStateText('');
+                    value = this.byId("idInput").getValue();
+                    oData.unshift({text : value});  //DES
+                    oModel.setProperty("/rows", oData);
+                }
+                else{
+                    this.byId("idInput").setValueState('Error');
+                    this.byId("idInput").setValueStateText('1이상 100이하의 숫자를 입력하세요.');
+                }
+                
             }
         });
     });
