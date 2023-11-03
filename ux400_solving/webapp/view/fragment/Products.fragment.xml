@@ -16,7 +16,7 @@
                 >
                 <extension>
                     <m:OverflowToolbar>
-                    <m:Title id="title" text="Products"/>
+                    <m:Title text="Products"/>
                     </m:OverflowToolbar>
                 </extension>
                 
@@ -83,6 +83,13 @@
                                     path : 'Discontinued',
                                     formatter : '.formatter.transformDiscontinued'
                                 }" wrapping="false" />
+                        </template>
+                    </Column>
+                    <Column>
+                        <m:Label text="Status" />
+                        <template>
+                        <!-- <m:Text text="{UnitPrice}" wrapping="false" /> -->
+                            <c:Icon src="{= ${UnitPrice} >= 15 ? 'sap-icon://thumb-up' : 'sap-icon://thumb-down'}" color="{= ${UnitPrice} >= 15 ? 'rgb(27, 234, 33)': 'rgb(234, 52, 27)'}"/>
                         </template>
                     </Column>
                 </columns>
