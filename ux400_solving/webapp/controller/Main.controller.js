@@ -10,6 +10,9 @@ sap.ui.define([
         return Controller.extend("sap.btp.ux400solving.controller.Main", {
             onInit: function () {
 
+            },
+            onRandomPress : function () {
+                this.byId("idInput").setValue(Math.floor(Math.random() * 100) + 1);
             }
         });
     });
