@@ -84,10 +84,17 @@ sap.ui.define([
                     aFilter.push(oFilter);
 
                 }
-               
-
+                //테이블 객체 가져와서, 바인딩 정보 가져온 후, Filter 적용
                 this.byId("idTable").getBinding("items").filter(aFilter);
-
+            },
+            onSuggest : function(oEvent) {
+                var sTerm = oEvent.getParameter("suggestValue");
+                var aFilters = [];
+                if (sTerm) {
+                    aFilters.push(new Filter("CustomerID", FilterOperator.StartsWith, sTerm));
+                }
+    
+                oEvent.getSource().getBinding("suggestionItems").filter(aFilters);
             }
         });
     });
