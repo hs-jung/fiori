@@ -67,4 +67,9 @@ value1 :
 value2 :
 })
 
+new Filter({
+filters : [필터객체1, 필터객체2, ... ],
+and : true/false
+})
+
 
