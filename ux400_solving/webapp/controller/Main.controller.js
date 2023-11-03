@@ -52,9 +52,7 @@ sap.ui.define([
             },
             onClose : function(oEvent) {
                 var oDialog =  sap.ui.getCore().byId("idDialog");
-                // oDialog.close();
 
-                //이벤트를 일으킨 객체(버튼)로부터 접근하여 Dialog 닫기
                 oEvent.getSource().getParent().close();
             },
             _typeToString: function(value) {
@@ -63,13 +61,11 @@ sap.ui.define([
             //formatter 함수
             formatter : {
                 transformDiscontinued : function(value) {
-                    // debugger;
                     return this._typeToString(value);
-                    // return value ? 'Yes' : 'No';
                 }
             },
             onValueChange : function() {
-                // debugger;
+
                 let oModel = this.getView().getModel('list');
                 let oData = this.getView().getModel('list').getProperty("/rows");
                 let value = 0;
@@ -96,7 +92,6 @@ sap.ui.define([
                         this.byId("idInput").setValueStateText('1이상 100이하의 숫자를 입력하세요.');
                         break;
                 }
-
             }
         });
     });
