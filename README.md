@@ -73,3 +73,15 @@ and : true/false
 })
 
 <h1>ux400_solving - 기초다지기문제 --23.11.03</h1>
+
+<h1>23.11.06</h1>
+<ul> project07 - Dialog Data 적용, Table - Filter, Table - Sorter
+  <li> Dialog Data 적용</li>
+  <li>Table - Filter</li>
+  <li>Table - Sorter</li>
+</ul>
+<ul> 라우팅 - Routing
+  <li> config - 설정</li>
+  <li> routes - 라우터 객체</li>
+  <li> targets : 타겟 설정 (View)</li>
+</ul>
