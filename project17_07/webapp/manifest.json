@@ -98,9 +98,16 @@
       "routes": [
         {
           "name": "RouteNorthwind",
-          "pattern": ":?query:",
+          "pattern": ":key:",
           "target": [
             "TargetNorthwind"
+          ]
+        },
+        {
+          "name": "RouteDetail",
+          "pattern": "detail/{OrderID}/:option:",
+          "target": [
+            "TargetDetail"
           ]
         }
       ],
@@ -111,6 +118,13 @@
           "clearControlAggregation": false,
           "viewId": "Northwind",
           "viewName": "Northwind"
+        },
+        "TargetDetail": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Detail",
+          "viewName": "Detail"
         }
       }
     },

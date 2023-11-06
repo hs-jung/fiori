@@ -132,6 +132,15 @@ sap.ui.define([
                 this.getView().getModel('main').setProperty("/CustomerID", obj.CustomerID);
                 
                 
+            },
+            //Detail.view.xml 로 이동
+            onNavDetail : function() {
+                // debugger;
+                var oRouter = this.getOwnerComponent().getRouter();
+                oRouter.navTo("RouteDetail",{
+                    OrderID : "10537", //필수 파라미터
+                    option : 123 //선택 파라미터
+                });
             }
         });
     });

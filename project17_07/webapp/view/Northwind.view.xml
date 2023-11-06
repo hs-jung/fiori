@@ -148,7 +148,9 @@
 				<subSections>
 					<ObjectPageSubSection titleUppercase="false">
 						<blocks>
-							<m:Text text="Section 4 Page" />
+							<!-- <m:Text text="Section 4 Page" />
+                             -->
+                             <m:Button text="go Detail" press="onNavDetail" />
 						</blocks>
 					</ObjectPageSubSection>
 				</subSections>

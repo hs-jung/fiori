@@ -1,8 +1,8 @@
 <mvc:View controllerName="odata.project1.controller.Detail"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
-    <Page>
-    <Text text="text"/>
+    <Page id="detail" title="">
+    <Text text="Detail Page"/>
     </Page>
     
 </mvc:View>
