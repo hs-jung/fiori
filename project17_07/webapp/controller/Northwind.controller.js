@@ -10,6 +10,8 @@ sap.ui.define([
     function (Controller,Fragment, Filter,FilterOperator) {
         "use strict";
 
+        var _oModel; //클로저변수
+
         return Controller.extend("odata.project1.controller.Northwind", {
             onInit: function () {
                 var oModel = new sap.ui.model.json.JSONModel({
@@ -66,9 +68,12 @@ sap.ui.define([
 
                 //이벤트를 일으킨 객체(버튼)로부터 접근하여 Dialog 닫기
                 oEvent.getSource().getParent().close();
+
+                //sap.ui.getCore().byId('idDialog');
+                //this.getView().byId("idCustClose").close();
             },
             onSearch : function() {
-                debugger;
+                // debugger;
                 var oData = this.getView().getModel("main").getData();
                 var aFilter = [];
 
@@ -85,6 +90,12 @@ sap.ui.define([
                     aFilter.push(oFilter);
 
                 }
+
+                if(oData.OrderDateFrom && oData.OrderDateTo)
+                {
+                    var oFilter = new Filter('OrderDate','BT', oData.OrderDateFrom, oData.OrderDateTo);
+                    aFilter.push(oFilter);
+                }
                 //테이블 객체 가져와서, 바인딩 정보 가져온 후, Filter 적용
                 this.byId("idTable").getBinding("items").filter(aFilter);
             },
@@ -96,6 +107,31 @@ sap.ui.define([
                 }
     
                 oEvent.getSource().getBinding("suggestionItems").filter(aFilters);
+            },
+            onRowSelectionChange : function(oEvent)
+            {
+                // debugger;
+                /*
+                * 선택한 Row의 모델 데이터를 얻는 방법
+                * 1-1. Context 객체에서 경로 얻기
+                * var sPath = oEvent.getParameters().rowContext.getPath();
+                * 
+                * 1-2. 해당 경로 사용하여 Model에서 데이터 얻기
+                * var obj =  this.getView().getModel().getProperty(sPath);
+                * 
+                * 2. Context객체에서 모델 데이터 얻기
+                * var obj = oEvent.getParameters().rowContext.getObject(); 
+                * ==> obj 변수에 내가 선택한  Row의 모델 정보가 들어간다.
+                * 
+                */
+                var obj = oEvent.getParameters().rowContext.getObject(); 
+                obj.CustomerID;
+
+                sap.ui.getCore().byId("idCustClose").fireEvent('press');
+
+                this.getView().getModel('main').setProperty("/CustomerID", obj.CustomerID);
+                
+                
             }
         });
     });

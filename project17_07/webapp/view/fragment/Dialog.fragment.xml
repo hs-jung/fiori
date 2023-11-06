@@ -11,8 +11,8 @@
                 selectionMode="Single"
                 selectionBehavior="RowOnly"
                 paste="onPaste"
-                ariaLabelledBy="title">
-
+                ariaLabelledBy="title"
+                rowSelectionChange="onRowSelectionChange">
                 <columns>
                     <Column>
                         <m:Label text="Customer ID" />
@@ -36,7 +36,7 @@
             </Table>
         </m:content>
         <m:endButton>
-            <m:Button text="close" press=".onClose" />
+            <m:Button id="idCustClose" text="close" press=".onClose" />
         </m:endButton>
     </m:Dialog>
 </c:FragmentDefinition>

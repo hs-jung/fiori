@@ -73,6 +73,9 @@
         "dataSource": "mainService",
         "preload": true,
         "settings": {}
+      },
+      "json":{
+        "type" : "sap.ui.model.json.JSONModel"
       }
     },
     "resources": {
@@ -116,6 +119,9 @@
       "type": "XML",
       "async": true,
       "id": "App"
+    },
+     "config" : {
+      "fullWidth" : true
     }
   }
 }

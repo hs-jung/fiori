@@ -28,10 +28,12 @@
             <m:Button width="100px" type="Emphasized" text="Search" press="onSearch" /> -->
             <fb:FilterBar id="filterbar" filterContainerWidth="24rem" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
                 <fb:filterGroupItems>
-                    <fb:FilterGroupItem name="CustomerID" label="CustomerID" groupName="Group1" visibleInFilterBar="true">
+                    <fb:FilterGroupItem name="CustomerID" label="CustomerID" groupName="Group1" visibleInFilterBar="true" >
                         <fb:control>
                             <m:Input
                             id="productInput"
+                            value="{main>/CustomerID}"
+                            showValueHelp="true"
                             valueHelpRequest=".onValueHelp"
                             placeholder="Enter CustomerID"
                             showSuggestion="true"
@@ -43,14 +45,16 @@
                             </m:Input>
                         </fb:control>
                     </fb:FilterGroupItem>
-                    <fb:FilterGroupItem name="Category" label="Category" groupName="Group1" visibleInFilterBar="true">
+                    <fb:FilterGroupItem name="OrderDate" label="OrderDate" groupName="Group1" visibleInFilterBar="true">
                         <fb:control>
-                            <m:Input width="200px" showValueHelp="true" value="{main>/CustomerID}" valueHelpRequest=".onValueHelp"/>
+                            <m:DateRangeSelection displayFormat="yyyy-MM-dd" 
+                            dateValue="{main>/OrderDateFrom}" 
+                            secondDateValue="{main>/OrderDateTo}"/>
                         </fb:control>
                     </fb:FilterGroupItem>
                     <fb:FilterGroupItem name="SupplierName" label="SupplierName" groupName="Group1" visibleInFilterBar="true">
                         <fb:control>
-                            <m:Input width="200px" showValueHelp="true" value="{main>/CustomerID}" valueHelpRequest=".onValueHelp"/>
+                            <m:Input width="200px" showValueHelp="true" />
                         </fb:control>
                     </fb:FilterGroupItem>
                 </fb:filterGroupItems>
@@ -64,7 +68,18 @@
 						<blocks>
                             <m:Table id="idTable"
                             inset="false"
-                            items="{path : '/Orders'}">
+                            items="{
+                                path : '/Orders',
+                                filters : [{
+                                    path : 'CustomerID',
+                                    operator : 'EQ',
+                                    value1 : 'RICSU'
+                                }],
+                                sorter : [{
+                                    path : 'EmployeeID',
+                                    descending : false
+                                }]
+                            }">
                             <m:headerToolbar>
                                 <m:OverflowToolbar>
                                     <m:content>
