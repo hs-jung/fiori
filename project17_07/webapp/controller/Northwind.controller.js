@@ -141,6 +141,16 @@ sap.ui.define([
                     OrderID : "10537", //필수 파라미터
                     option : 123 //선택 파라미터
                 });
+            },
+            onRowSelected : function(oEvent) {
+                // debugger;
+                var obj = oEvent.getParameters().listItem.getBindingContext();
+
+                var oRouter = this.getOwnerComponent().getRouter();
+                oRouter.navTo("RouteDetail",{
+                    OrderID : obj.getProperty().OrderID, //필수 파라미터
+                    option : 123 //선택 파라미터
+                });
             }
         });
     });

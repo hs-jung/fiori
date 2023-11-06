@@ -79,7 +79,10 @@
                                     path : 'EmployeeID',
                                     descending : false
                                 }]
-                            }">
+                            }"
+                            mode="SingleSelectMaster"
+                            selectionChange="onRowSelected"
+                            >
                             <m:headerToolbar>
                                 <m:OverflowToolbar>
                                     <m:content>

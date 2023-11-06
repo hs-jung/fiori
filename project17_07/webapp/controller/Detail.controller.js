@@ -1,10 +1,11 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/core/routing/History"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller,Fragment, Filter,FilterOperator) {
+    function (Controller,History) {
         "use strict";
 
         var _oModel; //클로저변수
@@ -24,9 +25,22 @@ sap.ui.define([
                 // oArgu => { OrderID : 'hihi', option : 123 }
 
                 this.byId('detail').setTitle(oArgu.OrderID);
+            },
+            //뒤로가기
+            onBack : function() {
+                var oHistory = History.getInstance();
+                var sPreviousHash = oHistory.getPreviousHash();
 
-                
-
+                if(sPreviousHash !== undefined){
+                    //sap router 히스토리가 없는 경우에는
+                    //window 히스토리에서 뒤로 가기
+                    window.history.go(-1);
+                }
+                else{
+                    // sap router 히스토리가 있으면 메인 화면으로 이동
+                    var oRouter = this.getOwnerComponent().getRouter();
+                    oRouter.navTo("RouteNorthwind",{});
+                }
             }
         });
     });
