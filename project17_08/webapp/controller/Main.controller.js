@@ -17,31 +17,16 @@ sap.ui.define([
                 this._setChartInController();
             },
             _setChartInView: function() {
-                var oData = {
-                    list : [
-                        { name : 'aaa', rate : 35, cost : 10 },
-                        { name : 'bbb', rate : 15, cost : 12 },
-                        { name : 'ccc', rate : 10, cost : 11 },
-                        { name : 'ddd', rate : 15, cost : 15 },
-                        { name : 'eee', rate : 20, cost : 10 },
-                        { name : 'fff', rate : 5, cost : 16 }
-                    ]
-                };
+                var oModel = new JSONModel();
+                oModel.loadData('../model/list.json');
 
-                this.getView().setModel(new JSONModel(oData), 'view');
+                this.getView().setModel(oModel, 'view');
             },
             _setChartInController : function() {
-                var oData = {
-                    sales : [
-                        {product: 'Jackets', amount :'65'},
-                        {product: 'Shirts', amount :'70'},
-                        {product: 'Pants', amount :'83'},
-                        {product: 'Coats', amount :'92'},
-                        {product: 'Pruse', amount :'77'}
-                    ]
-                };
+                var oModel = new JSONModel();
+                oModel.loadData('../model/Sales.json');  //json 파일 데이터 로드하기
 
-                this.getView().setModel(new JSONModel(oData), 'cont');
+                this.getView().setModel(oModel, 'cont');
                 
                 //Chart
                 var oChart = this.getView().byId("idChart");
@@ -74,6 +59,16 @@ sap.ui.define([
 
                 oChart.addFeed(feedValueAxis);
                 oChart.addFeed(feedChategoryAxis);
+
+                // (Optional) property setting
+                oChart.setVizProperties({
+                    title : {
+                        text : 'Sales Data'
+                    },
+                    plotArea : {
+                        colorPalette : ['#F361A6','#5CD1E5']
+                    }
+                });
 
                 oChart.setVizType("bar");
 
