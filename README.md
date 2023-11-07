@@ -88,6 +88,6 @@ and : true/false
 
 <h1>Project09 - Chart/ Chart Container / Micro Chart --23.11.07</h1>
 <ul> Chart
-  <li>VizFrame/li>
+  <li>VizFrame</li>
   <li>FeedItem</li>
 </ul>
