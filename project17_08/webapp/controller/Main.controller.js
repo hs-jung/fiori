@@ -37,7 +37,7 @@ sap.ui.define([
                         {product: 'Shirts', amount :'70'},
                         {product: 'Pants', amount :'83'},
                         {product: 'Coats', amount :'92'},
-                        {product: 'Pruse', amount :'77'},
+                        {product: 'Pruse', amount :'77'}
                     ]
                 };
 
@@ -54,9 +54,30 @@ sap.ui.define([
                     measures : [
                         {name : 'Amount', value: '{cont>amount}'}
                     ],
-                    data : { path : 'cont>sales'}
+                    data : { path : 'cont>/sales'}
                 });
+
+                oChart.setDataset(oDataSet);
+
                 //feed
+                var feedValueAxis = new FeedItem({
+                    uid : "valueAxis",
+                    type : "Measure",
+                    values : ['Amount']
+                });
+
+                var feedChategoryAxis = new FeedItem({
+                    uid : "categoryAxis",
+                    type : "Dimension",
+                    values : ['Product']
+                });
+
+                oChart.addFeed(feedValueAxis);
+                oChart.addFeed(feedChategoryAxis);
+
+                oChart.setVizType("bar");
+
+
             }
         });
     });

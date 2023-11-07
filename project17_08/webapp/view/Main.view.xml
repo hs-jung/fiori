@@ -56,8 +56,7 @@
             </viz:VizFrame>
 
             <!-- Controller 에서 만들기 -->
-            <viz:VizFrame  id="idChart" vizType="column">
-            </viz:VizFrame>
+            <viz:VizFrame  id="idChart" vizType="column" />
         </content>
     </Page>
 </mvc:View>
