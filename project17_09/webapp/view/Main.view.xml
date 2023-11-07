@@ -99,7 +99,7 @@
                                                 {path : 'data>Revenue3'}
                                             ]}" />
                                             <mic:RadialMicroChart size="M" 
-                                            percentage="{= (${main>Revenue} + ${main>Revenue2} + ${main>Revenue3}) / 100}"
+                                            percentage="{= (${data>Revenue} + ${data>Revenue2} + ${data>Revenue3}) / 100}"
                                             class="sapUiSmallMargin"/>
                                     </cells>
                                 </ColumnListItem>
