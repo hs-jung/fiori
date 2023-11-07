@@ -105,7 +105,7 @@ sap.ui.define([
                 if (sTerm) {
                     aFilters.push(new Filter("CustomerID", FilterOperator.StartsWith, sTerm));
                 }
-    
+                
                 oEvent.getSource().getBinding("suggestionItems").filter(aFilters);
             },
             onRowSelectionChange : function(oEvent)
@@ -144,6 +144,12 @@ sap.ui.define([
             },
             onRowSelected : function(oEvent) {
                 // debugger;
+                /**
+                 * var sPath = oEvent.getParameters().listItem.getBindingContextPath();
+                 * var oSelectItem = this.getView().getModel().getProperty(sPath);
+                 * var oRouter = this.getOwnerComponent().getRouter();
+                 */
+
                 var obj = oEvent.getParameters().listItem.getBindingContext();
 
                 var oRouter = this.getOwnerComponent().getRouter();

@@ -1,11 +1,12 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/core/routing/History"
+    "sap/ui/core/routing/History",
+    'sap/ui/model/Filter'
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller,History) {
+    function (Controller,History, Filter) {
         "use strict";
 
         var _oModel; //클로저변수
@@ -25,6 +26,20 @@ sap.ui.define([
                 // oArgu => { OrderID : 'hihi', option : 123 }
 
                 this.byId('detail').setTitle(oArgu.OrderID);
+
+                // 'Orders(10248)' 데이터 바인딩
+                this.getView().bindElement(`/Orders(${oArgu.OrderID})`);
+
+                // oArgu.OrderID 값으로 Key값을 얻었기 때문에
+                // 그 값을 이용해서 oDataModel.read() 요청을 보낼 수 있다.
+
+                // 단건 조회 요청 보내기
+                // this.getView().getModel().read(`/Orders(${oArgu.OrderID})`, {
+                //     success: function(oReturn) {
+                //     }
+                // });
+
+
             },
             //뒤로가기
             onBack : function() {
@@ -41,6 +56,18 @@ sap.ui.define([
                     var oRouter = this.getOwnerComponent().getRouter();
                     oRouter.navTo("RouteNorthwind",{});
                 }
+            },
+            onRead : function() {
+                var oDataModel = this.getView().getModel();
+                var oFilter = new Filter('CustomerID', 'EQ', 'VINET');
+
+                // SEGW URI : /EntitySetName
+                oDataModel.read("/Orders", {
+                    filters : [oFilter],
+                    success : function(oReturn) {
+                        oReturn.results // [ {}, {}, {}, {}, ... , {} ]
+                    }
+                });
             }
         });
     });

@@ -2,7 +2,15 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
     <Page showNavButton="true" navButtonPress="onBack" id="detail" title="">
-    <Text text="Detail Page"/>
+        <VBox>
+            <Text text="{OrderID}"/>
+            <Text text="{CustomerID}"/>
+            <Text text="{EmployeeID}"/>
+            <Text text="{ShipName}"/>
+            <Text text="{ShipCity}"/>
+            <Text text="{ShipCountry}"/>
+            <Button text="Orders 전체조회" press="onRead" />
+        </VBox>
     </Page>
     
 </mvc:View>
