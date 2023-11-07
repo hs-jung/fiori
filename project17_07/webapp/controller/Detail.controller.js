@@ -62,9 +62,11 @@ sap.ui.define([
                 var oFilter = new Filter('CustomerID', 'EQ', 'VINET');
 
                 // SEGW URI : /EntitySetName
+                // SEGW URI : oDataService_SRV/CarrierSet?$filter=CustomerID qd 'VINET'
                 oDataModel.read("/Orders", {
                     filters : [oFilter],
                     success : function(oReturn) {
+                        debugger;
                         oReturn.results // [ {}, {}, {}, {}, ... , {} ]
                     }
                 });
