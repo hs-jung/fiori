@@ -2,15 +2,24 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
     "sap/viz/ui5/data/FlattenedDataset",
-    "sap/viz/ui5/controls/common/feeds/FeedItem"
+    "sap/viz/ui5/controls/common/feeds/FeedItem",
+    "sap/m/Label",
+	"sap/m/ColumnListItem", 
+    "sap/m/library", 
+    "sap/m/MessageToast"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, FlattenedDataset, FeedItem) {
+    function (Controller, JSONModel, FlattenedDataset, FeedItem, 
+        Label, ColumnListItem, library, MessageToast ) {
         "use strict";
 
+        
+        
+
         return Controller.extend("project1709.controller.Main", {
+            
             onInit: function () {
                 this._setChartInController();
 

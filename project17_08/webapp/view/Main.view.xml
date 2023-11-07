@@ -53,6 +53,10 @@
                      <!-- <viz.feeds:FeedItem uid="color" values="이름" type="Dimension"/>--> <!-- X축 -->
                    <!-- <viz.feeds:FeedItem uid="size" values="rate" type="Measure" />--> <!-- Y축 -->
                 </viz:feeds>
+
+                <viz:dependents>
+                    <viz:Popover id="idPopOver"></viz:Popover>
+                </viz:dependents>
             </viz:VizFrame>
 
             <!-- Controller 에서 만들기 -->

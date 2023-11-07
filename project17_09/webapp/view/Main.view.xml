@@ -1,11 +1,116 @@
 <mvc:View controllerName="project1709.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
+    xmlns:mic="sap.suite.ui.microchart"
     xmlns:viz="sap.viz.ui5.controls"
     xmlns:viz.data="sap.viz.ui5.data"
-    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds">
-    <Page id="page" title="{i18n>title}">
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:c="sap.suite.ui.commons"
+    xmlns:layout="sap.ui.layout">
+    <!-- <Page id="page" title="{i18n>title}"> -->
         <!-- Controller 에서 만들기 -->
-        <viz:VizFrame  id="idChart" vizType="column" />
-    </Page>
+        <!-- <viz:VizFrame  id="idChart" vizType="column" /> -->
+    <!-- </Page> -->
+    <Page class="sapDemokitSuiteChartContainerFixFlex" title="ChartContainer" enableScrolling="false">
+		<content>
+			<layout:FixFlex>
+				<layout:flexContent>
+					<c:ChartContainer
+						class="sapUiResponsiveContentPadding"
+						id="chartContainer"
+						showFullScreen="true"
+						showPersonalization="false"
+						autoAdjustHeight="true"
+						personalizationPress="attachPersonalizationPress"
+						contentChange="attachContentChange"
+						title="Revenue">
+						<c:content>
+							<c:ChartContainerContent
+								icon="sap-icon://line-chart"
+								title="Line Chart">
+								<c:content>
+									<!-- <viz:VizFrame id="chartContainerVizFrame" height="100%" width="100%"
+									              uiConfig="{applicationSet:'fiori'}"></viz:VizFrame> -->
+                                    <viz:VizFrame  id="idChart" vizType="column" />
+								</c:content>
+							</c:ChartContainerContent>
+							<c:ChartContainerContent
+								icon="sap-icon://table-view"
+								title="Table">
+								<c:content>
+									<Table id="idTable"
+                            inset="false"
+                            items="{
+                                path : 'data>/Products'
+                            }"
+                            >
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <content>
+                                        <Title text="Products" level="H2"/>
+                                        <ToolbarSpacer />
+                                    </content>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column>
+                                    <Text text="Country" />
+                                </Column>
+                                <Column>
+                                    <Text text="Profit" />
+                                </Column>
+                                <Column>
+                                    <Text text="Forcast" />
+                                </Column>
+                                <Column>
+                                    <Text text="Target" />
+                                </Column>
+                                <Column>
+                                    <Text text="Revenue" />
+                                </Column>
+                                <Column>
+                                    <Text text="Revenue2" />
+                                </Column>
+                                 <Column>
+                                    <Text text="Revenue3" />
+                                </Column>
+                                <Column>
+                                    <Text text="result" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem vAlign="Middle">
+                                    <cells>
+                                          <Text text="{data>Country}" />
+                                          <Text text="{data>Profit}" />
+                                          <Text text="{data>Forcast}" />
+                                          <!--  (JSON Model + formatter 사용할 때 참고사항)
+                                                formmatter 적용시 one-way Binding 방식이 적용됨 -->
+                                          <Text text="{
+                                            path : 'data>Target'
+                                            }" />
+                                          <Text text="{
+                                            path : 'data>Revenue'}" />
+                                          <Text text="{
+                                            path : 'data>Revenue2'}" />
+                                            <!-- 두개 이상의 값 사용할 때 -->
+                                          <Text text="{
+                                            parts : [
+                                                {path : 'data>Revenue3'}
+                                            ]}" />
+                                            <mic:RadialMicroChart size="M" 
+                                            percentage="{= ${data>Revenue} >= 1 ? ( (${data>Revenue} + ${data>Revenue2} + ${data>Revenue3}) / 100 ) : ((${data>Revenue} + ${data>Revenue2} + ${data>Revenue3}) / 100) }" 
+                                            class="sapUiSmallMargin"/>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+								</c:content>
+							</c:ChartContainerContent>
+						</c:content>
+					</c:ChartContainer>
+				</layout:flexContent>
+			</layout:FixFlex>
+		</content>
+	</Page>
 </mvc:View>
