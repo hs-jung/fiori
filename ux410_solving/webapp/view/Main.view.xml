@@ -2,6 +2,7 @@
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns:core="sap.ui.core"
     xmlns="sap.m"
+    xmlns:m="sap.ui.webc.main"
     xmlns:f="sap.f"
     xmlns:fb="sap.ui.comp.filterbar"
     xmlns:svm="sap.ui.comp.smartvariants"
@@ -25,7 +26,7 @@
                                 <fb:control>
                                     <ComboBox
                                         name="OrderID"
-                                        selectionChange=".onSelectionChange"
+                                        id="idOrderID"
                                         items="{
                                             path: '/Orders'
                                         }"
@@ -33,36 +34,20 @@
                                         showSecondaryValues= "true"
                                     >
                                         <core:ListItem key="{OrderID}" text="{OrderID}" additionalText="{CustomerID}"/>
-                                        <!-- <core:ListItem key="{OrderID}" text="{OrderID}" /> -->
                                     </ComboBox>
                                 </fb:control>
                             </fb:FilterGroupItem>
-                            <fb:FilterGroupItem name="Category" label="Category" groupName="Group1" visibleInFilterBar="true">
+                            <fb:FilterGroupItem name="Type" label="Type" groupName="Group1" visibleInFilterBar="true">
                                 <fb:control>
-                                    <MultiComboBox
-                                        name="Category"
-                                        selectionChange=".onSelectionChange"
+                                    <ComboBox
+                                        name="Type"
                                         items="{
-                                            path: '/ProductCategories',
+                                            path: 'typeList>/list',
                                             templateShareable: true
                                         }"
                                     >
-                                        <core:Item key="{key}" text="{name}"/>
-                                    </MultiComboBox>
-                                </fb:control>
-                            </fb:FilterGroupItem>
-                            <fb:FilterGroupItem name="SupplierName" label="SupplierName" groupName="Group1" visibleInFilterBar="true">
-                                <fb:control>
-                                    <MultiComboBox
-                                        name="SupplierName"
-                                        selectionChange=".onSelectionChange"
-                                        items="{
-                                            path: '/ProductSuppliers',
-                                            templateShareable: true
-                                        }"
-                                    >
-                                        <core:Item key="{key}" text="{name}"/>
-                                    </MultiComboBox>
+                                        <core:ListItem key="{typeList>type}" text="{typeList>type}" />
+                                    </ComboBox>
                                 </fb:control>
                             </fb:FilterGroupItem>
                         </fb:filterGroupItems>
@@ -74,11 +59,12 @@
             <!-- vizFrame -->
             <viz:VizFrame vizType="bar"
             legendVisible="true"
+            id="idChart"
              uiConfig="{applicationSet:'fiori'}"
              width="100%"
             >
                 <viz:dataset>
-                    <viz.data:FlattenedDataset data="{/Order_Details}">
+                    <viz.data:FlattenedDataset id="idDataset" data="{/Order_Details}">
                     <!-- Y 축 -->
                     <viz.data:dimensions>
                         <viz.data:DimensionDefinition name="OrderID" value="{OrderID}" />
@@ -93,8 +79,7 @@
                     </viz.data:FlattenedDataset>
                 </viz:dataset>
                 <viz:feeds>
-                     <viz.feeds:FeedItem uid="categoryAxis" values="OrderID" type="Dimension" /> <!-- Y축 -->
-                    <viz.feeds:FeedItem uid="categoryAxis" values="ProductID" type="Dimension"/> <!-- Y축 -->
+                     <viz.feeds:FeedItem uid="categoryAxis" values="OrderID,ProductID" type="Dimension" /> <!-- Y축 -->
                      <viz.feeds:FeedItem uid="valueAxis" values="UnitPrice" type="Measure" /> <!-- X축 -->
                 </viz:feeds>
 
