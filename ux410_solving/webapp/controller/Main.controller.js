@@ -59,6 +59,13 @@ sap.ui.define([
                 if(oType.getValue()){
                     this.byId("idType").setValueState('None');
                 }
+            },
+            onSelectData : function(oEvent) {
+                var oRouter = this.getOwnerComponent().getRouter();
+                oRouter.navTo("RouteDetail",{
+                    OrderID : oEvent.getParameters().data[0].data.OrderID, //필수 파라미터
+                    option :  oEvent.getParameters().data[0].data.ProductID //선택 파라미터
+                });
             }
         });
     });

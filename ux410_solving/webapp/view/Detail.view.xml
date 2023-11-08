@@ -1,0 +1,40 @@
+<mvc:View controllerName="sap.btp.ux410solving.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:m="sap.m"
+    xmlns="sap.uxap"
+    xmlns:f="sap.ui.layout.form"
+	height="100%">
+    <ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" upperCaseAnchorBar="false"
+	headerContentPinned="true">
+		<headerTitle>
+			<ObjectPageDynamicHeaderTitle>
+				<heading>
+					<m:Title id="idTitle" text="OrderID"/>
+				</heading>
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+
+		<sections>
+			<ObjectPageSection titleUppercase="false" title="my section">
+				<subSections>
+					<ObjectPageSubSection title="Info" mode="Expanded" titleUppercase="false">
+                        <f:SimpleForm>
+                            <f:content>
+                                <m:Label text="OrderID" />
+                                <m:Text id="idOrderID" text="{data>/OrderID}" />
+                                <m:Label text="ProductID" />
+                                <m:Text id="idProductID" text="{data>/ProductID}" />
+                                <m:Label text="UnitPrice" />
+                                <m:Text id="idUnitPrice" text="{data>/UnitPrice}" />
+                                <m:Label text="Quantity" />
+                                <m:Text id="idQuantity" text="{data>/Quantity}" />
+                                <m:Label text="Discount" />
+                                <m:Text id="idDiscount" text="{data>/Discount}" />
+                            </f:content>
+                    </f:SimpleForm>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>

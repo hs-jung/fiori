@@ -66,11 +66,13 @@
             id="idChart"
              uiConfig="{applicationSet:'fiori'}"
              width="100%"
+             selectData="onSelectData"
+             
             >
                 <viz:dataset>
-                    <viz.data:FlattenedDataset id="idDataset" data="{/Order_Details}">
+                    <viz.data:FlattenedDataset id="idDataset" data="{/Order_Details}" >
                     <!-- Y 축 -->
-                    <viz.data:dimensions>
+                    <viz.data:dimensions >
                         <viz.data:DimensionDefinition name="OrderID" value="{OrderID}" />
                         <viz.data:DimensionDefinition name="ProductID" value="{ProductID}" />
                     </viz.data:dimensions>
