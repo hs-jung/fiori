@@ -1,12 +1,13 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/core/routing/History",
-    'sap/ui/model/Filter'
+    'sap/ui/model/Filter',
+    "sap/ui/model/json/JSONModel"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller,History, Filter) {
+    function (Controller,History, Filter, JSONModel) {
         "use strict";
 
         var _oModel; //클로저변수
@@ -14,6 +15,11 @@ sap.ui.define([
         return Controller.extend("odata.project1.controller.Detail", {
             //최초 한번만 실행됨
             onInit: function () {
+                var oModel = new JSONModel(); //json model           //2-1. 1-1 설정한 라이브러리 객체 생성 방법
+                    
+                //jsonModel을 View에서 사용하고 싶으면 => Data Binding.
+                this.getView().setModel(oModel, 'main');
+
                 var oRouter = this.getOwnerComponent().getRouter();
                 //Detail 라우터에 Pattern Matched 이벤트 붙이기
                 oRouter.getRoute('RouteDetail').attachPatternMatched(this._patternMatched, this);
@@ -44,11 +50,15 @@ sap.ui.define([
                         // 서버에서 얻은 값을 success함수의 파라미터 변수 값에서
                         // JSON Data 형태로 얻을 수 있다.
 
+                        debugger;
+
                         // 전체데이터 설정
-                        oModel.setProperty("/", oReturn);  
-                        oModel.setData(oReturn);
+                        // oModel.setProperty("/", oReturn);  
+                        // oModel.setData(oReturn);
                         //that.getView()~
                         this.getView().getModel('main').setData(oReturn);
+
+                      
                     }.bind(this)   //첫번째 방법 this bindind
                 });
 
