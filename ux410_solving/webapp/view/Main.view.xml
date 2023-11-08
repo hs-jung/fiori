@@ -1,7 +1,102 @@
 <mvc:View controllerName="sap.btp.ux410solving.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-        <content />
-    </Page>
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:svm="sap.ui.comp.smartvariants">
+    <f:DynamicPage headerExpanded="{/headerExpanded}">
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                     <Title text='VizFrame' />
+                </f:heading>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:header>
+            <f:DynamicPageHeader>
+                <f:content>
+                    <fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+                        <fb:filterGroupItems>
+                            <fb:FilterGroupItem name="OrderID" label="OrderID" groupName="Group1" visibleInFilterBar="true">
+                                <fb:control>
+                                    <ComboBox
+                                        name="OrderID"
+                                        selectionChange=".onSelectionChange"
+                                        items="{
+                                            path: '/Orders'
+                                        }"
+                                        required="true"
+                                        showSecondaryValues= "true"
+                                    >
+                                        <core:ListItem key="{OrderID}" text="{OrderID}" additionalText="{CustomerID}"/>
+                                        <!-- <core:ListItem key="{OrderID}" text="{OrderID}" /> -->
+                                    </ComboBox>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                            <fb:FilterGroupItem name="Category" label="Category" groupName="Group1" visibleInFilterBar="true">
+                                <fb:control>
+                                    <MultiComboBox
+                                        name="Category"
+                                        selectionChange=".onSelectionChange"
+                                        items="{
+                                            path: '/ProductCategories',
+                                            templateShareable: true
+                                        }"
+                                    >
+                                        <core:Item key="{key}" text="{name}"/>
+                                    </MultiComboBox>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                            <fb:FilterGroupItem name="SupplierName" label="SupplierName" groupName="Group1" visibleInFilterBar="true">
+                                <fb:control>
+                                    <MultiComboBox
+                                        name="SupplierName"
+                                        selectionChange=".onSelectionChange"
+                                        items="{
+                                            path: '/ProductSuppliers',
+                                            templateShareable: true
+                                        }"
+                                    >
+                                        <core:Item key="{key}" text="{name}"/>
+                                    </MultiComboBox>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                        </fb:filterGroupItems>
+                    </fb:FilterBar>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <Table
+                id="table"
+                inset="false"
+                items="{
+                    path: '/ProductCollection'
+                }"
+            >
+                <columns>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="Name"/>
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="Category"/>
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="SupplierName"/>
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem vAlign="Middle">
+                        <cells>
+                            <ObjectIdentifier title="{Name}" text="{ProductId}" />
+                            <Text text="{Category}" />
+                            <Text text="{SupplierName}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </f:content>
+    </f:DynamicPage>
 </mvc:View>
