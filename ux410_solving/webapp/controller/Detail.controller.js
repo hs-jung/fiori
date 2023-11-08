@@ -28,6 +28,10 @@ sap.ui.define([
 
                 this.byId('idTitle').setText(title);
 
+                /*
+                * this.getView().bindElement(`/Order_Details(OrderID=${oArgu.OrderID}, ProductID=${oArgu.option})`);
+                */
+
                 this.getView().getModel().read(`/Order_Details(OrderID=${oArgu.OrderID}, ProductID=${oArgu.option})`, {
                     success: function(oReturn) {
                         this.getView().getModel("data").setProperty('/',oReturn);

@@ -3,6 +3,7 @@
 	xmlns:m="sap.m"
     xmlns="sap.uxap"
     xmlns:f="sap.ui.layout.form"
+	xmlns:layout="sap.ui.layout"
 	height="100%">
     <ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" upperCaseAnchorBar="false"
 	headerContentPinned="true">
@@ -13,6 +14,13 @@
 				</heading>
 			</ObjectPageDynamicHeaderTitle>
 		</headerTitle>
+		 <headerContent>
+            <m:FlexBox wrap="Wrap">
+                <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+                    <m:Label text="Order detail view detail"/>
+                </layout:VerticalLayout>
+            </m:FlexBox>
+        </headerContent>
 
 		<sections>
 			<ObjectPageSection titleUppercase="false" title="my section">
