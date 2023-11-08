@@ -34,10 +34,17 @@ sap.ui.define([
                 // 그 값을 이용해서 oDataModel.read() 요청을 보낼 수 있다.
 
                 // 단건 조회 요청 보내기
-                // this.getView().getModel().read(`/Orders(${oArgu.OrderID})`, {
-                //     success: function(oReturn) {
-                //     }
-                // });
+                //두번째 방법
+                // var that = this;
+                this.getView().getModel().read(`/Orders(${oArgu.OrderID})`, {
+                    success: function(oReturn) {
+                        // 서버에서 얻은 값을 success함수의 파라미터 변수 값에서
+                        // JSON Data 형태로 얻을 수 있다.
+
+                        //that.getView()~
+                        this.getView().getModel('main').setData(oReturn);
+                    }.bind(this)   //첫번째 방법 this bindind
+                });
 
 
             },
