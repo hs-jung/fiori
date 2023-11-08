@@ -32,15 +32,33 @@ sap.ui.define([
             },
             onSearch : function() {
                 var oModel = this.getView().byId("idOrderID");
+                var oType = this.getView().byId("idType");
+                var oChart = this.getView().byId("idChart");
                 var aFilters = [];
 
-                if(oModel.getValue())
+                if(!oType.getValue())
                 {
-                    var oFilter = new Filter('OrderID', 'EQ', oModel.getValue());
-                    aFilters.push(oFilter);
+                    //Type 값없으면 validation error
+                    this.byId("idType").setValueState('Error');
                 }
+                else{
+                    if(oModel.getValue())
+                    {
+                        var oFilter = new Filter('OrderID', 'EQ', oModel.getValue());
+                        aFilters.push(oFilter);
+                    }
 
-                this.byId("idDataset").getBinding("data").filter(aFilters);
+                    this.byId("idDataset").getBinding("data").filter(aFilters);
+
+                    oChart.setVizType(oType.getValue());
+                }
+            },
+            onTypeChange : function() {
+                var oType = this.getView().byId("idType");
+
+                if(oType.getValue()){
+                    this.byId("idType").setValueState('None');
+                }
             }
         });
     });

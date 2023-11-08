@@ -41,10 +41,14 @@
                                 <fb:control>
                                     <ComboBox
                                         name="Type"
+                                        value="bar"
                                         items="{
                                             path: 'typeList>/list',
                                             templateShareable: true
                                         }"
+                                        id="idType"
+                                        change="onTypeChange"
+                                        required="true"
                                     >
                                         <core:ListItem key="{typeList>type}" text="{typeList>type}" />
                                     </ComboBox>
