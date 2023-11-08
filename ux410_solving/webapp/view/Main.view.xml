@@ -4,7 +4,10 @@
     xmlns="sap.m"
     xmlns:f="sap.f"
     xmlns:fb="sap.ui.comp.filterbar"
-    xmlns:svm="sap.ui.comp.smartvariants">
+    xmlns:svm="sap.ui.comp.smartvariants"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds">
     <f:DynamicPage headerExpanded="{/headerExpanded}">
         <f:title>
             <f:DynamicPageTitle>
@@ -68,35 +71,38 @@
             </f:DynamicPageHeader>
         </f:header>
         <f:content>
-            <Table
-                id="table"
-                inset="false"
-                items="{
-                    path: '/ProductCollection'
-                }"
+            <!-- vizFrame -->
+            <viz:VizFrame vizType="bar"
+            legendVisible="true"
+             uiConfig="{applicationSet:'fiori'}"
+             width="100%"
             >
-                <columns>
-                    <Column minScreenWidth="Tablet" demandPopin="true">
-                        <Text text="Name"/>
-                    </Column>
-                    <Column minScreenWidth="Tablet" demandPopin="true">
-                        <Text text="Category"/>
-                    </Column>
-                    <Column minScreenWidth="Tablet" demandPopin="true">
-                        <Text text="SupplierName"/>
-                    </Column>
-                </columns>
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{/Order_Details}">
+                    <!-- Y 축 -->
+                    <viz.data:dimensions>
+                        <viz.data:DimensionDefinition name="OrderID" value="{OrderID}" />
+                        <viz.data:DimensionDefinition name="ProductID" value="{ProductID}" />
+                    </viz.data:dimensions>
 
-                <items>
-                    <ColumnListItem vAlign="Middle">
-                        <cells>
-                            <ObjectIdentifier title="{Name}" text="{ProductId}" />
-                            <Text text="{Category}" />
-                            <Text text="{SupplierName}" />
-                        </cells>
-                    </ColumnListItem>
-                </items>
-            </Table>
+                    <!-- X 축 -->
+                    <viz.data:measures>
+                        <viz.data:MeasureDefinition name="UnitPrice" value="{UnitPrice}" />
+                    </viz.data:measures>
+
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+                <viz:feeds>
+                     <viz.feeds:FeedItem uid="categoryAxis" values="OrderID" type="Dimension" /> <!-- Y축 -->
+                    <viz.feeds:FeedItem uid="categoryAxis" values="ProductID" type="Dimension"/> <!-- Y축 -->
+                     <viz.feeds:FeedItem uid="valueAxis" values="UnitPrice" type="Measure" /> <!-- X축 -->
+                </viz:feeds>
+
+                <viz:dependents>
+                    <viz:Popover id="idPopOver"></viz:Popover>
+                </viz:dependents>
+            </viz:VizFrame>
+            <!-- vizFrame -->
         </f:content>
     </f:DynamicPage>
 </mvc:View>
