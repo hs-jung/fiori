@@ -36,11 +36,17 @@ sap.ui.define([
                 // 단건 조회 요청 보내기
                 //두번째 방법
                 // var that = this;
+
+                var oModel = this.getView().getModel('main');
+
                 this.getView().getModel().read(`/Orders(${oArgu.OrderID})`, {
                     success: function(oReturn) {
                         // 서버에서 얻은 값을 success함수의 파라미터 변수 값에서
                         // JSON Data 형태로 얻을 수 있다.
 
+                        // 전체데이터 설정
+                        oModel.setProperty("/", oReturn);  
+                        oModel.setData(oReturn);
                         //that.getView()~
                         this.getView().getModel('main').setData(oReturn);
                     }.bind(this)   //첫번째 방법 this bindind
