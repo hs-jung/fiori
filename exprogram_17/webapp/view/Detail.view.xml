@@ -1,0 +1,68 @@
+<mvc:View xmlns:f2="sap.f" controllerName="exam.exprogram17.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:main="sap.ui.webc.main"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    >
+    <Page id="page">
+        <content >
+            <Title id="idTitle" text=""/>
+            <Table id="idTable2"
+                inset="false"
+                items="{
+                    path : '/Order_Details_Extendeds',
+                    filters : [{
+                        path : 'CategoryID',
+                        operator : 'EQ',
+                        value1 : 0
+                    }],
+                    sorter : [{
+                        path : 'CategoryID',
+                        descending : false
+                    }]
+                }"
+                mode="SingleSelectMaster"
+                selectionChange="onRowSelected"
+                alternateRowColors="true"
+                >
+                <columns>
+                    <Column>
+                        <Text text="주문 ID" />
+                    </Column>
+                    <Column>
+                        <Text text="상품 이름" />
+                    </Column>
+                    <Column>
+                        <Text text="상품 금액" />
+                    </Column>
+                    <Column>
+                        <Text text="수량" />
+                    </Column>
+                    <Column>
+                        <Text text="할인율" />
+                    </Column>
+                     <Column>
+                        <Text text="총 금액" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle">
+                        <cells>
+                            <Text text="OrderID" />
+                            <Text text="ProductName" />
+                            <Text text="UnitPrice" />
+                            <Text text="Quantity" />
+                            <Text text="Discount" />
+                            <Text text="ExtendedPrice" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

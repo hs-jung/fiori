@@ -239,6 +239,18 @@
             "UnitsOnOrder": 0,
             "ReorderLevel": 0,
             "Discontinued": false
+        },
+        {
+            "ProductID": 21,
+            "ProductName": "Filo Mix",
+            "SupplierID": 8,
+            "CategoryID": 5,
+            "QuantityPerUnit": "30 gift boxes",
+            "UnitPrice": "81.0000",
+            "UnitsInStock": 40,
+            "UnitsOnOrder": 0,
+            "ReorderLevel": 0,
+            "Discontinued": false
         }
     ]
 }

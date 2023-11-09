@@ -5,6 +5,9 @@
     xmlns:f="sap.ui.layout.form"
     xmlns:core="sap.ui.core"
     xmlns:main="sap.ui.webc.main"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
     >
     <Page id="page" title="{i18n>title}">
         <content >
@@ -12,7 +15,7 @@
             <l:Grid >
                 <Panel class="sapUiSmallMargin" accessibleRole="Region">
                     <layoutData>
-                        <l:GridData span="XL3 L3 M3 S12" />
+                        <l:GridData span="XL2 L2 M2 S12" />
                     </layoutData>
                     <headerToolbar>
                         <OverflowToolbar>
@@ -35,7 +38,7 @@
                 
                 <Panel expandable="true" width="auto" class="sapUiSmallMargin" expanded="true" height="350px">
                     <layoutData>
-                        <l:GridData span="XL9 L9 M9 S12" />
+                        <l:GridData span="XL10 L10 M10 S12" />
                     </layoutData>
                     <headerToolbar>
                         <OverflowToolbar style="Clear">
@@ -87,7 +90,7 @@
 
                 <Panel class="sapUiSmallMargin" accessibleRole="Region" visible="false">
                     <layoutData>
-                        <l:GridData span="XL3 L3 M3 S12" />
+                        <l:GridData span="XL2 L2 M2 S12" />
                     </layoutData>
                     <content>
                     </content>
@@ -152,11 +155,56 @@
 
                 <Panel class="sapUiSmallMargin" width="auto" accessibleRole="Region">
                     <layoutData>
-                        <l:GridData span="XL4 L4 M4 S12" />
+                        <l:GridData span="XL5 L5 M5 S12" />
                     </layoutData>
-                   
                     <content>
+                        <viz:VizFrame 
+                        id="idChart"
+                        vizType="pie"
+                        legendVisible="true"
+                        selectData="onSelectData"
+                        vizProperties="{
+                            'title' : {
+                                'visible' : true,
+                                'text' : '상품별 매출량 비교'
+                            },
+                            'legendGroup' : {
+                                'layout' : {'position' : 'right'}
+                            },
+                            'plotArea' : {
+                                'dataLabel' : {
+                                    visible : true,
+                                    type : 'value'
+                                }
+                            }
+                        }">
+                            <viz:dataset>
+                                <viz.data:FlattenedDataset id="idFdata" data="sbc>/list">
+                                <!-- X 축 -->
+                                <viz.data:dimensions>
+                                    <viz.data:DimensionDefinition name="ProductName" value="{sbc>ProductName}" />
+                                </viz.data:dimensions>
 
+                                <!-- Y 축 -->
+                                <viz.data:measures>
+                                    <viz.data:MeasureDefinition name="ProductSales" value="{sbc>ProductSales}" />
+                                </viz.data:measures>
+
+                                </viz.data:FlattenedDataset>
+                            </viz:dataset>
+                            <viz:feeds>
+                            <!-- 
+                                uid 셋팅 참고
+                                line, column, bar .. => CategoryAxis + valueAxis
+                                Pie, donut, ...      => color + size 
+
+                            -->
+                                <viz.feeds:FeedItem uid="color" values="ProductName" type="Dimension"/> <!-- X축 -->
+                                <viz.feeds:FeedItem uid="size" values="ProductSales" type="Measure" /> <!-- Y축 -->
+                                <!-- <viz.feeds:FeedItem uid="color" values="이름" type="Dimension"/>--> <!-- X축 -->
+                            <!-- <viz.feeds:FeedItem uid="size" values="rate" type="Measure" />--> <!-- Y축 -->
+                            </viz:feeds>
+                        </viz:VizFrame>
                     </content>
                 </Panel>
             </l:Grid>
