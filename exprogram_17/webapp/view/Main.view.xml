@@ -27,9 +27,9 @@
                         <f:SimpleForm>
                     <f:content>
                         <Label text="ID" />
-                        <Input id="idInpOrdID" value="" />
-                        <Label text="CategoryID" />
-                        <Input id="idInpCTGID" value=""/>
+                        <Input id="idCategoryID" value="" />
+                        <Label text="Category Name" />
+                        <Input id="idCategoryName" value=""/>
                     </f:content>
                 </f:SimpleForm>
                     </content>
@@ -54,14 +54,9 @@
                             growing="true"
                             growingThreshold="3"
                             items="{
-                                path : '/Orders',
-                                filters : [{
-                                    path : 'CustomerID',
-                                    operator : 'EQ',
-                                    value1 : 'RICSU'
-                                }],
+                                path : '/Categories',
                                 sorter : [{
-                                    path : 'EmployeeID',
+                                    path : 'CategoryID',
                                     descending : false
                                 }]
                             }"
@@ -70,21 +65,21 @@
                             >
                             <columns>
                                 <Column>
-                                    <Text text="OrderID" />
+                                    <Text text="카테고리 ID" />
                                 </Column>
                                 <Column>
-                                    <Text text="CustomerID" />
+                                    <Text text="카테고리명" />
                                 </Column>
                                 <Column>
-                                    <Text text="EmployeeID" />
+                                    <Text text="설명" />
                                 </Column>
                             </columns>
                             <items>
                                 <ColumnListItem vAlign="Middle">
                                     <cells>
-                                          <Text text="{OrderID}" />
-                                          <Text text="{CustomerID}" />
-                                          <Text text="{EmployeeID}" />
+                                          <Text text="{CategoryID}" />
+                                          <Text text="{CategoryName}" />
+                                          <Text text="{Description}" />
                                     </cells>
                                 </ColumnListItem>
                             </items>
