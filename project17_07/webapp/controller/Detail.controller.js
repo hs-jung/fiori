@@ -34,7 +34,7 @@ sap.ui.define([
                 this.byId('detail').setTitle(oArgu.OrderID);
 
                 // 'Orders(10248)' 데이터 바인딩
-                this.getView().bindElement(`/Orders(${oArgu.OrderID})`);
+                // this.getView().bindElement(`/Orders(${oArgu.OrderID})`);
 
                 // oArgu.OrderID 값으로 Key값을 얻었기 때문에
                 // 그 값을 이용해서 oDataModel.read() 요청을 보낼 수 있다.
