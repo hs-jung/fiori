@@ -10,6 +10,9 @@ sap.ui.define([
         return Controller.extend("exam.exprogram17.controller.Main", {
             onInit: function () {
 
+            },
+            onSearch : function() {
+                debugger;
             }
         });
     });

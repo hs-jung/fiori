@@ -1,7 +1,97 @@
-<mvc:View controllerName="exam.exprogram17.controller.Main"
+<mvc:View xmlns:f2="sap.f" controllerName="exam.exprogram17.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:main="sap.ui.webc.main"
+    >
     <Page id="page" title="{i18n>title}">
-        <content />
+        <content >
+            
+            
+            <!-- sap.ui.layout.Grid -->
+            <l:Grid >
+                <Panel class="sapUiSmallMargin" accessibleRole="Region">
+                    <layoutData>
+                        <l:GridData span="XL3 L3 M3 S12" />
+                    </layoutData>
+                    <headerToolbar>
+                        <OverflowToolbar>
+                            <Title text=" "/>
+                            <ToolbarSpacer />
+                            <main:Button click="onSearch" icon="sap-icon://search" text="Search" design="Emphasized" />
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <content>
+                        <f:SimpleForm>
+                    <f:content>
+                        <Label text="ID" />
+                        <Input id="idInpOrdID" value="" />
+                        <Label text="CategoryID" />
+                        <Input id="idInpCTGID" value=""/>
+                    </f:content>
+                </f:SimpleForm>
+                    </content>
+                </Panel>
+                
+
+                <Panel expandable="true" width="auto" class="sapUiSmallMargin" expanded="true" height="350px">
+                    <layoutData>
+                        <l:GridData span="XL9 L9 M9 S12" />
+                    </layoutData>
+                    <headerToolbar>
+                        <OverflowToolbar style="Clear">
+                            <Title text="카테고리 조회" />
+                            <ToolbarSpacer />
+                            <!-- <Button icon="sap-icon://settings" />
+                            <Button icon="sap-icon://drop-down-list" /> -->
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <content>
+                        <Table id="idTable"
+                            inset="false"
+                            growing="true"
+                            growingThreshold="3"
+                            items="{
+                                path : '/Orders',
+                                filters : [{
+                                    path : 'CustomerID',
+                                    operator : 'EQ',
+                                    value1 : 'RICSU'
+                                }],
+                                sorter : [{
+                                    path : 'EmployeeID',
+                                    descending : false
+                                }]
+                            }"
+                            mode="SingleSelectMaster"
+                            selectionChange="onRowSelected"
+                            >
+                            <columns>
+                                <Column>
+                                    <Text text="OrderID" />
+                                </Column>
+                                <Column>
+                                    <Text text="CustomerID" />
+                                </Column>
+                                <Column>
+                                    <Text text="EmployeeID" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem vAlign="Middle">
+                                    <cells>
+                                          <Text text="{OrderID}" />
+                                          <Text text="{CustomerID}" />
+                                          <Text text="{EmployeeID}" />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </content>
+                </Panel>
+            </l:Grid>
+        </content>
     </Page>
 </mvc:View>
