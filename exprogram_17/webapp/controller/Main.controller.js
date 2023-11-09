@@ -1,16 +1,20 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
+    "sap/ui/model/FilterOperator",
+    "sap/ui/model/json/JSONModel"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, Filter, FilterOperator) {
+    function (Controller, Filter, FilterOperator, JSONModel) {
         "use strict";
 
         return Controller.extend("exam.exprogram17.controller.Main", {
             onInit: function () {
+                var oModel = new JSONModel();
+                oModel.loadData('../model/Products.json');
+                this.getView().setModel(oModel, 'products');
 
             },
             onSearch : function() {
@@ -34,6 +38,23 @@ sap.ui.define([
                 //테이블 객체 가져와서, 바인딩 정보 가져온 후, Filter 적용
                 this.byId("idTable").getBinding("items").filter(aFilter);
                 
+            },
+            onRowSelected : function(oEvent) {
+                var aFilter = [];
+                var sPath = oEvent.getSource().getSelectedContextPaths();  // "/Categories(2)"
+                this.getView().getModel().read(sPath[0], {
+                    success: function(oReturn) {
+                        if (oReturn.CategoryID) {
+                            var oFilter = new Filter('CategoryID','EQ', oReturn.CategoryID);
+                            aFilter.push(oFilter);
+                        }
+        
+                        //테이블 객체 가져와서, 바인딩 정보 가져온 후, Filter 적용
+                        this.byId("idTable2").getBinding("items").filter(aFilter);
+                    }.bind(this)  //첫번째 방법 this bindind
+                    
+                });
+                // var oSelectItem = this.getView().getModel().getProperty(sPath);
             }
         });
     });

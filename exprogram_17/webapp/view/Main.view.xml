@@ -8,8 +8,6 @@
     >
     <Page id="page" title="{i18n>title}">
         <content >
-            
-            
             <!-- sap.ui.layout.Grid -->
             <l:Grid >
                 <Panel class="sapUiSmallMargin" accessibleRole="Region">
@@ -25,17 +23,16 @@
                     </headerToolbar>
                     <content>
                         <f:SimpleForm>
-                    <f:content>
-                        <Label text="ID" />
-                        <Input id="idCategoryID" value="" />
-                        <Label text="Category Name" />
-                        <Input id="idCategoryName" value=""/>
-                    </f:content>
-                </f:SimpleForm>
+                            <f:content>
+                                <Label text="ID" />
+                                <Input id="idCategoryID" value="" />
+                                <Label text="Category Name" />
+                                <Input id="idCategoryName" value=""/>
+                            </f:content>
+                        </f:SimpleForm>
                     </content>
                 </Panel>
                 
-
                 <Panel expandable="true" width="auto" class="sapUiSmallMargin" expanded="true" height="350px">
                     <layoutData>
                         <l:GridData span="XL9 L9 M9 S12" />
@@ -62,6 +59,7 @@
                             }"
                             mode="SingleSelectMaster"
                             selectionChange="onRowSelected"
+                            alternateRowColors="true"
                             >
                             <columns>
                                 <Column>
@@ -77,13 +75,88 @@
                             <items>
                                 <ColumnListItem vAlign="Middle">
                                     <cells>
-                                          <Text text="{CategoryID}" />
-                                          <Text text="{CategoryName}" />
-                                          <Text text="{Description}" />
+                                        <Text text="{CategoryID}" />
+                                        <Text text="{CategoryName}" />
+                                        <Text text="{Description}" />
                                     </cells>
                                 </ColumnListItem>
                             </items>
                         </Table>
+                    </content>
+                </Panel>
+
+                <Panel class="sapUiSmallMargin" accessibleRole="Region" visible="false">
+                    <layoutData>
+                        <l:GridData span="XL3 L3 M3 S12" />
+                    </layoutData>
+                    <content>
+                    </content>
+                </Panel>
+
+                <Panel class="sapUiSmallMargin" accessibleRole="Region">
+                    <layoutData>
+                        <l:GridData span="XL5 L5 M5 S12" />
+                    </layoutData>
+                   
+                    <content>
+                        <Table id="idTable2"
+                            inset="false"
+                            items="{
+                                path : 'products>/results',
+                                filters : [{
+                                    path : 'CategoryID',
+                                    operator : 'EQ',
+                                    value1 : 0
+                                }],
+                                sorter : [{
+                                    path : 'CategoryID',
+                                    descending : false
+                                }]
+                            }"
+                            mode="SingleSelectMaster"
+                            selectionChange="onRowSelected"
+                            alternateRowColors="true"
+
+                            >
+                            <columns>
+                                <Column>
+                                    <Text text="ID" />
+                                </Column>
+                                <Column>
+                                    <Text text="상품명" />
+                                </Column>
+                                <Column>
+                                    <Text text="재고" />
+                                </Column>
+                                <Column>
+                                    <Text text="단위 주문 수량" />
+                                </Column>
+                                <Column>
+                                    <Text text="주문가능여부" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem vAlign="Middle">
+                                    <cells>
+                                        <Text text="{products>CategoryID}" />
+                                        <Text text="{products>ProductName}" />
+                                        <Text text="{products>UnitsInStock}" />
+                                        <Text text="{products>UnitsOnOrder}" />
+                                        <core:Icon src="{= ${products>UnitsInStock} > ${products>UnitsOnOrder} ? 'sap-icon://circle-task' : 'sap-icon://decline'}" color="{=  ${products>UnitsInStock} > ${products>UnitsOnOrder} ? 'rgb(27, 234, 33)': 'rgb(234, 52, 27)'}"></core:Icon>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </content>
+                </Panel>
+
+                <Panel class="sapUiSmallMargin" width="auto" accessibleRole="Region">
+                    <layoutData>
+                        <l:GridData span="XL4 L4 M4 S12" />
+                    </layoutData>
+                   
+                    <content>
+
                     </content>
                 </Panel>
             </l:Grid>
