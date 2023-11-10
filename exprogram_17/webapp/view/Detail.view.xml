@@ -9,22 +9,12 @@
     xmlns:viz.data="sap.viz.ui5.data"
     xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
     >
-    <Page id="page">
+    <Page id="page" title="주문 내역 조회">
         <content >
-            <Title id="idTitle" text=""/>
             <Table id="idTable2"
-                inset="false"
-                items="{
-                    path : '/Order_Details_Extendeds',
-                    filters : [{
-                        path : 'CategoryID',
-                        operator : 'EQ',
-                        value1 : 0
-                    }],
-                    sorter : [{
-                        path : 'CategoryID',
-                        descending : false
-                    }]
+                inset="false" 
+                items="{    
+                    path : '/Order_Details_Extendeds'
                 }"
                 mode="SingleSelectMaster"
                 selectionChange="onRowSelected"
@@ -53,12 +43,12 @@
                 <items>
                     <ColumnListItem vAlign="Middle">
                         <cells>
-                            <Text text="OrderID" />
-                            <Text text="ProductName" />
-                            <Text text="UnitPrice" />
-                            <Text text="Quantity" />
-                            <Text text="Discount" />
-                            <Text text="ExtendedPrice" />
+                            <Text text="{OrderID}" />
+                            <Text text="{ProductName}" />
+                            <Text text="{UnitPrice}" />
+                            <Text text="{Quantity}" />
+                            <Text text="{Discount}" />
+                            <Text text="{ExtendedPrice}" />
                         </cells>
                     </ColumnListItem>
                 </items>

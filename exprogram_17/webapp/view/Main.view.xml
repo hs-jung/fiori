@@ -170,12 +170,6 @@
                             },
                             'legendGroup' : {
                                 'layout' : {'position' : 'right'}
-                            },
-                            'plotArea' : {
-                                'dataLabel' : {
-                                    visible : true,
-                                    type : 'value'
-                                }
                             }
                         }">
                             <viz:dataset>

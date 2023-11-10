@@ -1,7 +1,7 @@
 {
   "_version": "1.58.0",
   "sap.app": {
-    "id": "exam.exprogram17",
+    "id": "project17btp",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -13,18 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
       "version": "1.11.2",
-      "toolsId": "83c1ff03-d984-46ef-8a07-33b43758086d"
-    },
-    "dataSources": {
-      "mainService": {
-        "uri": "/v2/northwind/northwind.svc/",
-        "type": "OData",
-        "settings": {
-          "annotations": [],
-          "localUri": "localService/metadata.xml",
-          "odataVersion": "2.0"
-        }
-      }
+      "toolsId": "e8710a84-3967-4e89-8056-d49e262d3e60"
     }
   },
   "sap.ui": {
@@ -46,7 +35,7 @@
   "sap.ui5": {
     "flexEnabled": false,
     "dependencies": {
-      "minUI5Version": "1.120.0",
+      "minUI5Version": "1.120.1",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
@@ -66,13 +55,8 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "exam.exprogram17.i18n.i18n"
+          "bundleName": "project17btp.i18n.i18n"
         }
-      },
-      "": {
-        "dataSource": "mainService",
-        "preload": true,
-        "settings": {}
       }
     },
     "resources": {
@@ -87,7 +71,7 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "async": true,
-        "viewPath": "exam.exprogram17.view",
+        "viewPath": "project17btp.view",
         "controlAggregation": "pages",
         "controlId": "app",
         "clearControlAggregation": false
@@ -99,13 +83,6 @@
           "target": [
             "TargetMain"
           ]
-        },
-        {
-          "name": "RouteDetail",
-          "pattern": "/detail/{ProductName}",
-          "target": [
-            "TargetDetail"
-          ]
         }
       ],
       "targets": {
@@ -115,24 +92,14 @@
           "clearControlAggregation": false,
           "viewId": "Main",
           "viewName": "Main"
-        },
-        "TargetDetail": {
-          "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
-          "viewId": "Detail",
-          "viewName": "Detail"
         }
       }
     },
     "rootView": {
-      "viewName": "exam.exprogram17.view.App",
+      "viewName": "project17btp.view.App",
       "type": "XML",
       "async": true,
       "id": "App"
-    },
-    "config" : {
-      "fullWidth":true
     }
   }
 }

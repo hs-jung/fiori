@@ -24,6 +24,8 @@ sap.ui.define([
             //라우터 패턴이 "일치할때마다" 실행
             _patternMatched : function(oEvent) {
                 var oArgu = oEvent.getParameters().arguments;
+                var oDataModel = this.getView().getModel();
+                var oFilter = new Filter('ProductName','EQ', oArgu.ProductName);
                 // oArgu => { OrderID : 'hihi', option : 123 }
                 // debugger;
                 // this.getView().getModel().read(`/Order_Details_Extendeds(ProductName=${oArgu.ProductName})`, {
@@ -34,7 +36,11 @@ sap.ui.define([
                 // });
                 var title = oArgu.ProductName + " 상품의 주문 조회";
 
-                this.byId('idTitle').setText(title);
+                // this.byId('idTitle').setText(title);
+                this.byId('page').setTitle(title);
+                this.byId('idTable2').getBinding("items").filter(oFilter);
+
+                
 
 
             },

@@ -1,7 +1,7 @@
 {
   "_version": "1.58.0",
   "sap.app": {
-    "id": "exam.exprogram17",
+    "id": "exam.exprogram00",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -12,8 +12,8 @@
     "resources": "resources.json",
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
-      "version": "1.11.2",
-      "toolsId": "83c1ff03-d984-46ef-8a07-33b43758086d"
+      "version": "1.11.3",
+      "toolsId": "9d328558-4b3f-48d8-a367-de40aa1eb9bd"
     },
     "dataSources": {
       "mainService": {
@@ -66,7 +66,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "exam.exprogram17.i18n.i18n"
+          "bundleName": "exam.exprogram00.i18n.i18n"
         }
       },
       "": {
@@ -87,7 +87,7 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "async": true,
-        "viewPath": "exam.exprogram17.view",
+        "viewPath": "exam.exprogram00.view",
         "controlAggregation": "pages",
         "controlId": "app",
         "clearControlAggregation": false
@@ -102,7 +102,7 @@
         },
         {
           "name": "RouteDetail",
-          "pattern": "/detail/{ProductName}",
+          "pattern": "detail/{id}",
           "target": [
             "TargetDetail"
           ]
@@ -126,13 +126,10 @@
       }
     },
     "rootView": {
-      "viewName": "exam.exprogram17.view.App",
+      "viewName": "exam.exprogram00.view.App",
       "type": "XML",
       "async": true,
       "id": "App"
-    },
-    "config" : {
-      "fullWidth":true
     }
   }
 }

@@ -117,17 +117,18 @@ sap.ui.define([
                 var oFilter = new Filter('CategoryID','EQ', '0');
                 aFilter.push(oFilter);
                        
-        
+                // this.byId("idTable1").removeSelections();
                 //테이블 객체 가져와서, 바인딩 정보 가져온 후, Filter 적용
                 this.byId("idTable2").getBinding("items").filter(aFilter);
 
                 oModel.setProperty("/list", {});
 
                 var oChart = this.getView().byId("idChart");
+                oChart.destroyDataset();
 
-                // oModel.loadData('../model/SalesByCategories.json');
+                oModel.loadData('../model/SalesByCategories.json');
 
-                // this.getView().setModel(oModel, 'sbc');
+                this.getView().setModel(oModel, 'sbc');
                 var oDataSet = new FlattenedDataset({
                     dimensions: [
                         {name : 'ProductName', value: '{sbc>ProductName}'}
@@ -135,7 +136,7 @@ sap.ui.define([
                     measures : [
                         {name : 'ProductSales', value: '{sbc>ProductSales}'}
                     ],
-                    data : { path : 'sbc>/list'}
+                    data : { path : ''}
                 });
                 
                 oChart.setDataset(oDataSet);
