@@ -1,9 +1,9 @@
-<mvc:View controllerName="project1.controller.Main"
+<mvc:View controllerName="project17btp.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
     xmlns:t="sap.ui.table"
     xmlns:f="sap.f"
-    xmlns:layout="sap.ui.layout" >
+    xmlns:layout="sap.ui.layout">
     <f:DynamicPage id="dynamicPageId" headerExpanded="{/headerExpanded}" toggleHeaderOnTitleClick="{/titleClickable}">
     <f:title>
         <f:DynamicPageTitle>
