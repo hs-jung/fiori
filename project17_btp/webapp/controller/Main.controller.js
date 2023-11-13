@@ -14,7 +14,7 @@ sap.ui.define([
             },
             onReadEntitySet : function() {
                 // oData Model 전체조회
-                // Get 요청 :/MemberSet
+                // Get 요청 :/MemberSetName
                 
                 this.getView().getModel().read("/MemberSet", {
                     success: function(oReturn){
@@ -23,7 +23,7 @@ sap.ui.define([
                         this.getView().setModel("/", oRerun.results);
                     }
                 });
-            },//단건조회(GET)
+            },//단건조회(GET) GET : /EntitysetName(key1='value')
             onReadEntity : function() {
                 var oTable = this.getView().byId("idTable");
                 var index = oTable.getSelectedIndex();
@@ -65,6 +65,16 @@ sap.ui.define([
                         debugger;
                     }
                 })
+
+                /**
+                 * Deep Create
+                 * {
+                 *  HeaderID : "0001",
+                 * Items : [
+                 *  {}, {}, {}, {}
+                 * ]
+                 * }
+                 */
 
 
             },//변경(PUT)
