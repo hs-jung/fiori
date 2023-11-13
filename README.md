@@ -91,3 +91,12 @@ and : true/false
   <li>VizFrame</li>
   <li>FeedItem</li>
 </ul>
+
+<h1>23.11.13</h1>
+<h5>UI5 Application</h5>
+C : oDataModel.create("EntitysetName", oBody, {success : function() {}});
+R (다건): oDataModel.read("/EntitysetName", { filters : [{필터객체1}, ... , {필터객체n}], sorter : [], success : function(oReturn) {}, error: function() {}}
+R (단건): var Key = oDataModel.createKey("/EntitySetName", {Key1: value}
+         oDataModel.read(Key, { filters : [{필터객체1}, ... , {필터객체n}], sorter : [], success : function(oReturn) {}, error: function() {}}
+U : oDataModel.update("/EntitysetName(key1=value)", oBody, {success : function() {}, error : function() {}})
+D : oDataModel.remove("/EntitysetName(key1=value)", {})
