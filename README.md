@@ -129,5 +129,6 @@ SAP GUI
 ![image](https://github.com/hs-jung/fiori/assets/19891967/afd8a4a5-8ffa-485d-ad16-a55a57557f4b)
 ![image](https://github.com/hs-jung/fiori/assets/19891967/7dbdc50c-77c5-46f5-9769-c322703376a2)
 
+멘토 - 깃 사용방법
 
 
