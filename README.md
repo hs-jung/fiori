@@ -100,3 +100,34 @@ R (단건): var Key = oDataModel.createKey("/EntitySetName", {Key1: value}
          oDataModel.read(Key, { filters : [{필터객체1}, ... , {필터객체n}], sorter : [], success : function(oReturn) {}, error: function() {}}
 U : oDataModel.update("/EntitysetName(key1=value)", oBody, {success : function() {}, error : function() {}})
 D : oDataModel.remove("/EntitysetName(key1=value)", {})
+
+<h1>23.11.14</h1>
+<h5>Deloy</h5>
+npm run build
+npm run deploy-config
+npm run deploy
+
+카탈로그 생성
+SAP GUI
+/n/ui2/flpd_cust
+![image](https://github.com/hs-jung/fiori/assets/19891967/dd6905ea-3c9c-4f3d-8802-084bcf1b04e3)
+![image](https://github.com/hs-jung/fiori/assets/19891967/2e72b99b-987a-4ae9-9c49-246504502750)
+![image](https://github.com/hs-jung/fiori/assets/19891967/ae5b0bbc-a893-4b4e-bea6-d64881666bb0)
+![image](https://github.com/hs-jung/fiori/assets/19891967/234645ac-c40a-4009-bcdd-4fef775dd095)
+![image](https://github.com/hs-jung/fiori/assets/19891967/a76aac46-aea6-4eea-b0d7-1ffb3cde556a)
+
+그룹설정
+![image](https://github.com/hs-jung/fiori/assets/19891967/bbab6a6b-f9e2-404d-8d28-aa8a77bab2b3)
+![image](https://github.com/hs-jung/fiori/assets/19891967/e9b1d36e-e2c5-4740-9107-3a4345cae50a)
+![image](https://github.com/hs-jung/fiori/assets/19891967/dafce72b-54d7-413b-a447-cf34202150ed)
+![image](https://github.com/hs-jung/fiori/assets/19891967/452bf5ab-7c5d-4070-a22f-a0acb006dd86)
+
+/n/PFCG : 롤 추가/관리
+![image](https://github.com/hs-jung/fiori/assets/19891967/ea9e9971-b0f4-4f0c-9864-7ce20ad0569a)
+![image](https://github.com/hs-jung/fiori/assets/19891967/be3c1d37-a37b-4489-a67a-b9ef6bfac055)
+![image](https://github.com/hs-jung/fiori/assets/19891967/40be9fd8-6172-43bd-9baf-527ae1057128)
+![image](https://github.com/hs-jung/fiori/assets/19891967/afd8a4a5-8ffa-485d-ad16-a55a57557f4b)
+![image](https://github.com/hs-jung/fiori/assets/19891967/7dbdc50c-77c5-46f5-9769-c322703376a2)
+
+
+
