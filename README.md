@@ -106,6 +106,7 @@ D : oDataModel.remove("/EntitysetName(key1=value)", {})
 npm run build
 npm run deploy-config
 npm run deploy
+
 카탈로그 생성
 SAP GUI
 /n/ui2/flpd_cust
@@ -114,6 +115,7 @@ SAP GUI
 ![image](https://github.com/hs-jung/fiori/assets/19891967/ae5b0bbc-a893-4b4e-bea6-d64881666bb0)
 ![image](https://github.com/hs-jung/fiori/assets/19891967/234645ac-c40a-4009-bcdd-4fef775dd095)
 ![image](https://github.com/hs-jung/fiori/assets/19891967/a76aac46-aea6-4eea-b0d7-1ffb3cde556a)
+
 그룹설정
 ![image](https://github.com/hs-jung/fiori/assets/19891967/bbab6a6b-f9e2-404d-8d28-aa8a77bab2b3)
 ![image](https://github.com/hs-jung/fiori/assets/19891967/e9b1d36e-e2c5-4740-9107-3a4345cae50a)
