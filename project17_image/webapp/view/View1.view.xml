@@ -1,0 +1,48 @@
+<mvc:View controllerName="project17image.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <Image id="idImage" width="150px"  />
+        <Table id="idTable"
+		inset="false"
+		items="{
+			path: '/ScarrSet'
+		}">
+            <columns>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Image" />
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Carrid" />
+                </Column>
+                <Column minScreenWidth="Tablet" demandPopin="true">
+                    <Text text="Carrname" />
+                </Column>
+                <Column minScreenWidth="Desktop" demandPopin="true">
+                    <Text text="Currcode" />
+                </Column>
+                <Column minScreenWidth="Desktop" demandPopin="true">
+                    <Text text="Url" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem vAlign="Middle">
+                    <cells>
+                        <Image width="150px" src="{
+                            path : 'Carrid',
+                            formatter: '.fnImageSet'
+                        }" />
+                        <Text
+                            text="{Carrid}" />
+                        <Text
+                            text="{Carrname}" />
+                        <Text
+                            text="{Currcode}" />
+                        <Text
+                            text="{Url}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </Page>
+</mvc:View>
